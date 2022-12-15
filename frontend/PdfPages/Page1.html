@@ -1,0 +1,143 @@
+//<script type="text/jsx">
+function Page1({day,month,year}) {
+  console.log(dataForm)
+  return (
+    <div className="container">
+      <div className="row ">
+        <div className="col-md-12 ">
+          <div className="row">
+            <div className="col-md-12 ">
+              <h4 className="text-center mb-2 mt-1"> FICHA DE DATOS DEL TRABAJADOR</h4>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <p className="text-end mb-2"> <strong> Lima, {day} de {month} del {year}</strong>.</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+            <h6 className="text-start  mt-1 ">1. <span className="text-decoration-underline"> DATOS DEL TRABAJADOR</span></h6>
+            <table class="table  table-borderless lh-1">
+                <thead></thead>
+                  
+                <tbody>
+                  <tr>
+                    <td>Apellidos</td>
+                    <td>{dataForm.apellidos}</td>
+                    
+                  </tr>
+                  <tr>
+                    
+                    <td>Nombres</td>
+                    <td>{dataForm.nombres}</td>
+                  </tr>
+                  <tr>
+                    <td >Lugar y Fecha de Nacimiento</td>
+                    <td>{dataForm.lugarNac}, {dataForm.fechaNacimiento}</td>
+                  </tr>
+                  <tr>
+                    <td >Edad</td>
+                    <td>{dataForm.edad}</td>
+                  </tr>
+                  <tr>
+                    <td >Estado Civil</td>
+                    <td>{dataForm.estadoCivil}</td>
+                  </tr>
+                  <tr>
+                    <td >Nacionalidad</td>
+                    <td>{dataForm.nacionalidad}</td>
+                  </tr>
+                  <tr>
+                    <td >{dataForm.tipoDoc} nro:</td>
+                    <td>{dataForm.nroDoc}</td>
+                  </tr>
+                  <tr>
+                    <td >Pasaporte</td>
+                    <td>{dataForm.pasaporte}</td>
+                  </tr>
+                  <tr>
+                    <td >Autogenerado ESSALUD</td>
+                    <td>xxxxxx</td>
+                  </tr>
+                  <tr>
+                    <td >Domicilio</td>
+                    <td>{dataForm.domicilio}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p className=" lh-1 mt-2 text-wrap"><strong className="text-decoration-underline mx-3">Urbanización: </strong>{dataForm.urbanizacion}<strong className="text-decoration-underline mx-3">Distrito: </strong>{dataForm.distrito}<strong className="text-decoration-underline mx-3">Provincia: </strong>{dataForm.provincia}<strong className="text-decoration-underline  mx-3">Departamento:  </strong>{dataForm.departamento}</p>
+              <p className="lh-1 mt-2 text-wrap"><strong className="text-decoration-underline mx-3">Teléfono Fijo:	</strong> {dataForm.telFijo} <strong className="text-decoration-underline mx-3">Teléfono Móvil: </strong>{dataForm.telMovil}<strong className="text-decoration-underline mx-3"> Teléfono de Contacto: </strong>.{dataForm.telContacto}<strong className="text-decoration-underline mx-3"> Referencia: </strong>{dataForm.referencia}</p>
+
+              <h6 className="text-start mt-4 ">1. <span className="text-decoration-underline"> NIVEL EDUCATIVO:</span></h6>
+              
+              <p>Primaria Incomp.	({dataForm.nivelEstudio.primariaincompleta==true?(<strong>X</strong>):" "})   Primaria Completa   ({dataForm.nivelEstudio.primariacompleta==true?(<strong>X</strong>):" "} )   Secundaria Incomp.({dataForm.nivelEstudio.secundariaincompleta==true?(<strong>X</strong>):" "})     Secundaria Completa  
+({dataForm.nivelEstudio.secundariacompleta==true?(<strong>X</strong>):" "} )     Técnica Incompleta     ({dataForm.nivelEstudio.tecnicaincompleta==true?(<strong>X</strong>):" "} )     Técnica Completa      ({dataForm.nivelEstudio.tecnicacompleta==true?(<strong>X</strong>):" "}) Superior I.S.T. Incomp. ({dataForm.nivelEstudio.superiorISTincompleta==true?(<strong>X</strong>):" "}) Superior I.S.T. Comp. ({dataForm.nivelEstudio.superiorISTcompleta==true?(<strong>X</strong>):" "} )   Universit. Incomp.   ( {dataForm.nivelEstudio.universidadincompleta==true?(<strong>X</strong>):" "} ) Universitaria Completa ({dataForm.nivelEstudio.universidadcompleta==true?(<strong>X</strong>):" "} )        Grado de Bachiller Incompleto ({dataForm.nivelEstudio.bachillerincompleta==true?(<strong>X</strong>):" "} )  Grado de Bachiller Completo ({dataForm.nivelEstudio.bachillercompleta==true?(<strong>X</strong>):" "} )
+Maestría Incompleta    ({dataForm.nivelEstudio.maestriaincompleta==true?(<strong>X</strong>):" "} )    Maestría Completa    ( {dataForm.nivelEstudio.maestriacompleta==true?(<strong>X</strong>):" "})     Doctorado Incompleto   ( {dataForm.nivelEstudio.doctoradoincompleta==true?(<strong>X</strong>):" "})      Doctorado Completo     ( {dataForm.nivelEstudio.doctoradocompleta==true?(<strong>X</strong>):" "})       Titulado     ({dataForm.nivelEstudio.tituladotitulado==true?(<strong>X</strong>):" "}) Sin Educ. Formal ({dataForm.nivelEstudio.educformaleducformal==true?(<strong>X</strong>):" "}) 
+</p>
+<h6 className="text-start mt-1 ">1. <span className="text-decoration-underline">DATOS DE FAMILIARES DIRECTOS :</span> (padre, madre, cónyuge o conviviente e hijos):</h6> 
+            </div>
+          </div>
+          <table class="table table-borderless">
+            <thead>
+              <th scope="col"><small>Nombres y Apellidos Completos</small></th>
+              <th scope="col"><small>Parentesco </small></th>
+              <th scope="col"><small>Edad</small></th>
+              <th scope="col"><small>Sexo</small></th>
+              <th scope="col"><small>Tipo Doc.</small></th>
+              <th scope="col"><small>Nro Doc.</small></th>
+            </thead>
+            <tbody>
+            <tr>
+            <td>
+              <small>{dataForm.familiares[0].nombApellido}</small></td>
+              <td><small>{dataForm.familiares[0].parentesco}</small></td>
+              <td><small>{dataForm.familiares[0].edad} </small></td>
+              <td><small>{dataForm.familiares[0].sexo}</small></td>
+              <td><small>{dataForm.familiares[0].tipoDoc}</small></td>
+              <td><small>{dataForm.familiares[0].nroDoc}</small></td>
+            </tr><tr>
+            <td>
+              <small>{dataForm.familiares[1].nombApellido}</small></td>
+              <td><small>{dataForm.familiares[1].parentesco||""}</small></td>
+              <td><small>{dataForm.familiares[1].edad} </small></td>
+              <td><small>{dataForm.familiares[1].sexo}</small></td>
+              <td><small>{dataForm.familiares[1].tipoDoc}</small></td>
+              <td><small>{dataForm.familiares[1].nroDoc}</small></td>
+            </tr><tr>
+            <td>
+            <small>{dataForm.familiares[2].nombApellido}</small></td>
+              <td><small>{dataForm.familiares[2].parentesco}</small></td>
+              <td><small>{dataForm.familiares[2].edad} </small></td>
+              <td><small>{dataForm.familiares[2].sexo}</small></td>
+              <td><small>{dataForm.familiares[2].tipoDoc}</small></td>
+              <td><small>{dataForm.familiares[2].nroDoc}</small></td>
+            </tr><tr>
+            <td>
+            <small>{dataForm.familiares[3].nombApellido}</small></td>
+              <td><small>{dataForm.familiares[3].parentesco}</small></td>
+              <td><small>{dataForm.familiares[3].edad} </small></td>
+              <td><small>{dataForm.familiares[3].sexo}</small></td>
+              <td><small>{dataForm.familiares[3].tipoDoc}</small></td>
+              <td><small>{dataForm.familiares[3].nroDoc}</small></td>
+            </tr><tr>
+            
+            <td>
+            <small>{dataForm.familiares[4].nombApellido}</small></td>
+              <td><small>{dataForm.familiares[4].parentesco}</small></td>
+              <td><small>{dataForm.familiares[4].edad} </small></td>
+              <td><small>{dataForm.familiares[4].sexo}</small></td>
+              <td><small>{dataForm.familiares[4].tipoDoc}</small></td>
+              <td><small>{dataForm.familiares[4].nroDoc}</small></td>
+            </tr>
+              
+            </tbody>
+        </table>
+        <small>(En caso de hijos mayores de 18 años, indicar si éstos cursan estudios superiores o universitarios. La empresa se reserva el derecho de exigir al trabajador que acredite la existencia de los hijos.)
+        </small>
+        </div>
+      </div>
+    </div>
+  )
+}
+//</script >

@@ -1,0 +1,34 @@
+//<script type="text/jsx">
+function NavigationFooterBar({back,next}) {
+
+  useEffect(()=>{
+   
+  },[activaSiguiente]) 
+  return(
+    <footer className="container navigationFooterBar">
+      <div className="position-relative">
+        <div className="back position-absolute top-50 start-0">
+          <NavLink to= {back} className= "btn backBTN"> 
+            <div className="arrowBack">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="11" viewBox="0 0 16.094 11">
+                <path id="keyboard_backspace_FILL0_wght400_GRAD0_opsz48_1_" data-name="keyboard_backspace_FILL0_wght400_GRAD0_opsz48 (1)" d="M11.6,22.317l-5-4c-.077-.077.031.077,0,0s0,.092,0,0-.031-.923,0-1-.077.077,0,0l5-4c.122-.122-.2-.992,0-1s.862.862,1,1,0-.191,0,0,.138-.138,0,0l-4,4h14c.2,0-.13-.13,0,0s0,.8,0,1,.13-.13,0,0,.2,0,0,0H8.6l4,4c.122.122-.008-.191,0,0s.138-.138,0,0-.809,1-1,1S11.738,22.455,11.6,22.317Z" transform="translate(-6.572 -12.317)" fill="#1e3050"/>
+              </svg>
+            </div>
+            <span> Atrás</span></NavLink>
+            
+            
+        </div>
+        
+        <div className="next position-absolute top-50 end-0 " >
+
+           {!activaSiguiente?(<button type="submit" className="btn nextBTN mx-3" >Enviar Datos</button>):(<button type="submit" className="disabledbutton btn nextBTN mx-3" >Enviar Datos</button>)}
+          
+          {!!activaSiguiente?(<NavLink to= {next} className=" btn nextBTN " > Siguiente </NavLink>):(<NavLink to= {next} className="disabledbutton btn nextBTN " > Siguiente </NavLink>)}
+         
+            
+            
+        </div>
+      </div>
+    </footer>
+  )}
+//</script >

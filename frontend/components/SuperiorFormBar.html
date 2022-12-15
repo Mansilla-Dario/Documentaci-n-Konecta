@@ -1,0 +1,57 @@
+//<script type="text/jsx">
+
+  function SuperiorFormBar(props) {
+
+    return (
+
+      <nav class="navbar bg-transparent mt-2">
+        <div class="container-fluid">
+        <div className="col-sm-4 align-middle">
+            <HelpIcon
+                    w={30}
+                    h={30}
+                    color={"#236FB6"}
+              />
+          </div>
+          <div className="col-sm-4 align-middle ">
+            <ProccesBar
+            actual={props.actual}
+            total={props.total}
+            />
+          </div>
+          <div className="col-sm-4 align-middle">
+            <div className="row  ">
+            <div className="col-sm-6 "></div>
+            <div className="col-sm-6 ">
+              <div className="row col-sm-6 ">
+                <div className=" ">
+                  <div className="logoIzqIMG">
+                    <LogoKonecta
+                    w={"99.5"}
+                    h={"18.38"}
+                    color={"#1E3050"}
+                    />
+
+                  </div>
+                </div>
+              </div>
+              <div className="row col-sm-6">
+              
+                <div className="">
+                  <span className="logoIzqSpan">Documentación</span>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+        </div>
+      </nav>
+
+     
+          
+         
+
+    )
+  }
+
+  //</script>

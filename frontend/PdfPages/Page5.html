@@ -1,0 +1,103 @@
+//<script type="text/jsx">
+function Page5({day,month,year}) {
+  console.log("dataForm en Page5",dataForm)
+  return (
+    <div className="container">
+      <div className="row ">
+        <div className="col-md-12 ">
+          <div className="row">
+            <div className="col-md-12 ">
+              <h4 className="text-center mb-5 mt-3">  Declaración Jurada</h4>
+            </div>
+           
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <p className="text-end mb-5"><strong> Lima, {day} de {month} del {year}</strong></p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <p className="lh-sm text-wrap">PARA EL SISTEMA PREVISIONAL DE PENSIÓN</p>
+              
+              <p className="lh-sm text-wrap"><ol>
+                <li>NOMBRES Y APELLIDOS: :<strong>{dataForm.apellidos}, {dataForm.nombres}</strong></li>
+                <li><strong>{dataForm.tipoDoc} N°:__{dataForm.nroDoc}</strong></li>
+                
+              </ol>
+              </p>
+              <p className="lh-sm text-wrap mb-5">Por el presente documento declaro a la empresa <strong>Konecta</strong></p>
+
+             
+
+              <p className="lh-sm text-wrap mb-5">Con esta declaración libero al Departamento de Recursos Humanos de toda responsabilidad por cuanto los datos que expongo se ajustan a la verdad.</p>
+              <div className="form-check">
+                <input className="form-check-input" type="checkbox" checked={dataForm.AfpPrevia[0]}/>
+                
+                {!!dataForm.AfpPrevia[0]?(<label className="form-check-label" for="flexCheckDefault">
+                  Sí, estoy afiliado a la AFP .....{dataForm.estabaAfiliada[0]}............ de código único:....{dataForm.codigoUnico[0]}........</label>):(<label className="form-check-label" for="flexCheckDefault">Sí, estoy afiliado a la AFP ................. de código único:............ </label>)}
+                  
+                </div> 
+                <div className="form-check mb-5 ">
+                <input className="form-check-input mx-3" type="checkbox"  id="flexCheckDefault" checked={dataForm.deseaContinuar}/>
+                
+                <label className="form-check-label" for="flexCheckDefault">
+                  Deseo continuar
+                </label>
+              </div> 
+              <div className="form-check">
+                <input className="form-check-input" type="checkbox"  checked={!dataForm.AfpPrevia[0]}/>
+                <label className="form-check-label" for="flexCheckDefault">
+                  No estoy afiliado a ninguna AFP
+                </label>
+              </div>
+              <div className="form-check mb-1">
+              
+              {!dataForm.AfpPrevia[0]?(
+                <input className="form-check-input mx-3" type="checkbox" checked={dataForm.afiliarIntegra[0]}/>
+              ):(<input className="form-check-input mx-3" type="checkbox" checked={false}/>)}
+              
+                
+                
+                <label className="form-check-label " for="flexCheckDefault">
+                  Deseo afiliarme a la AFP INTEGRA
+                </label>
+              </div>
+              <div className="form-check mb-5">
+              {!dataForm.AfpPrevia[0]?(
+                <input className="form-check-input mx-3" type="checkbox" checked={dataForm.afiliarSNP[0]}/>
+              ):(<input className="form-check-input mx-3" type="checkbox" checked={false}/>)}
+
+                
+                <label className="form-check-label " for="flexCheckDefault">
+                  Deseo afiliarme a la AFP SNP
+                </label>
+              </div>
+              
+            </div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-md-4">
+              <div className="row">
+                <div className="col-md-12 ">
+                  <p className="lh-sm text-wrap ">{dataForm.apellidos}, {dataForm.nombres}</p>
+                  
+                  <p className="lh-sm text-wrap mb-5"><strong>NOMBRE</strong></p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12"><br/><br/><br/>
+                <img src={dataForm.firmaIMG} className="firmaIMG" />
+                
+                </div>
+              </div>
+            </div>
+            <div className="col-md-8">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+//</script >

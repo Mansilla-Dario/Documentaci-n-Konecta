@@ -1,0 +1,57 @@
+//<script type="text/jsx">
+function Page6({day,month,year}) {
+  return (
+    <div className="container">
+      <div className="row ">
+        <div className="col-md-12 ">
+          <div className="row">
+            <div className="col-md-12 ">
+              <h4 className="text-center mb-5 mt-3"> COMPROMISO DE NO SUPLANTACIÓN DE IDENTIDAD</h4>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <p className="text-end mb-5"><strong> Lima, {day} de {month} del {year}</strong></p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <p className="lh-sm text-wrap">Yo,	<strong>{dataForm.apellidos}, {dataForm.nombres}</strong>,	identificado con	<strong>{dataForm.tipoDoc} n°:__{dataForm.nroDoc}</strong>, con domicilio <strong>{dataForm.domicilio}</strong> ubicado en
+, distrito<strong> {dataForm.distrito}</strong>...provincia de <strong>{dataForm.provincia}</strong> y departamento de <strong>{dataForm.departamento}</strong>; mediante el presente documento tomo conocimiento de lo siguiente: </p>
+             
+              <p className="lh-sm text-wrap"><ol>
+                <li>Que, la suplantación de identidad consiste en hacerse pasar por otra persona por diversos motivos y para diversos fines, hecho que puede darse por medios distintos, entre ellos, como los tecnológicos.</li>
+                <li>Que, <strong>Konecta Perú</strong> <sup> 1</sup>, rechaza tajantemente la comisión de cualquier conducta delictiva; por lo que, ante este tipo de conductas, toma las acciones legales pertinentes de conformidad con el Código Penal Peruano y la Ley de Delitos Informáticos.</li>
+                <li>Que, <strong>Konecta Perú</strong>, n aras de la prevención de la existencia de esta conducta delictiva, realizará la comprobación de la identidad de el/la colaborador/a durante la capacitación y en cualquier momento de la relación laboral (si la hubiere).</li>
+              </ol>
+              </p>
+              <p className="lh-sm text-wrap mb-5">En consecuencia, con pleno conocimiento del contenido del presente documento, autorizo la comprobación de mi identidad y declaro bajo responsabilidad que no ha existido ningún tipo de coacción para la firma al pie del presente documento en señal de conformidad.</p>
+              
+              
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="row">
+                <div className="col-md-12 ">
+                  <p className="lh-sm text-wrap "><strong>{dataForm.apellidos}, {dataForm.nombres}</strong></p>
+                  
+                  <p className="lh-sm text-wrap mb-5"><strong>NOMBRE</strong></p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12"><br/><br/><br/>
+                <img src={dataForm.firmaIMG} className="firmaIMG" />
+                
+                </div>
+              </div>
+            </div>
+            <div className="col-md-8">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+//</script >

@@ -1,0 +1,430 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
+:root {
+  --gray: #E2E2E2;
+  --soft-gray: brown;
+  --dark-gray: #707070;
+  --blue-light:#44BAC8;
+  --blue-middle: #236FB6;
+  --blue-dark:#1E3050;
+  --yelow:#FEC703;
+  --fuccia:#DC2870;
+  --green-light:#5EBDAA;
+  --white:#FFFFFF;
+  --openSans:'Open Sans', sans-serif
+  --semiBold:600;
+}
+  .containerInicio{
+    position:relative;
+    width:100vw;
+    height:100vh;
+  }
+.logoInicio{
+  width:100% Vw; 
+  height:=auto;
+  display:flex;
+  position:absolute;
+  left:50%;
+  top:20%;
+  transform: translate(-50%,-0%);
+  padding-bottom: 10px;
+  border-bottom:1px solid gray;
+}
+.logoInicio span{
+   width:100% Vw; 
+   height:=auto;
+   display:flex;
+   position:absolute;
+   left:50%;
+   top:110%;
+   transform: translate(-50%,-0%);
+   padding-bottom: 10px;
+   font-weight: bold;
+   color:gray;
+}
+.informationBox{
+   width:450px; 
+   height:=auto;
+   border:1px solid gray;
+   padding:15px 40px 15px 40px;
+    position:absolute;
+    left:50%;
+    bottom:22%;
+    transform: translate(-50%,-0%);
+}
+.informationBox h2{
+  font-size:1.3rem;
+  font-weight: bold;
+  color:gray;
+}
+.btn{
+ border-radius: 37px;
+ padding: 5px 30px;
+}
+.btn-primary{
+  color:var(--dark-gray);
+  background-color:var(--gray);
+}
+.containerPagePDF{
+  width:100Vw; 
+  height:auto
+}
+.generateBar{
+  background-color:var(--gray);
+  display: flex;
+  padding: 15px 55px;
+  justify-content: end;
+  align-content: center;
+}
+body {
+  background: rgb(204,204,204); 
+  font-family:var(--openSans);
+}
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+  width: 21cm;
+  height: 29.7cm; 
+  padding: 25px;
+  font-size: 0.8rem;
+}
+
+.headerPage{
+  margin-bottom:20px;
+}
+.headerPage img{
+  width:200px;
+  height:auto;
+}
+.invisible{
+  display:none
+}
+.imgSize-1{
+   width:600px;
+   height:auto;
+}
+
+.box-procces-section {
+  display: flex;
+  width: 600px ;
+  height: 50px;
+  margin-top:10px;
+  position: relative;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 5px;
+}
+
+.proccesBar-container{
+  display: flex;
+  position: absolute;
+  justify-content: start;
+  margin-top: 40px;
+  left:50%;
+  transform: translateX(-50%);
+  bottom: 0%;
+  width: 40%;
+  height: 15px;
+  background-color:var(--gray);
+  border-radius: 5px;
+  font-weight: bold;
+}
+.proccesBar-container span{
+  color: var(--blue-dark);
+  font-weight: bold;
+  margin-top: -30px;
+  margin-left:50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  right: 0;
+}
+.proccesBar-fill-1-6{
+  content:'';
+  height: 100%;
+  width: 16.66%;
+  background-color:var(--blue-dark);
+  display: flex;
+  position: absolute;
+  left:0;
+  animation-name: chargeBar-1-6;
+  animation-duration: 4s;
+  border-radius: 5px;
+}
+@keyframes chargeBar-1-6{
+  from {width: 0%;}
+  to{width: 16.66%;}
+}
+
+.proccesBar-fill-2-6{
+  content:'';
+  height: 100%;
+  width: 33.33%;
+  background-color:var(--blue-dark);
+  display: flex;
+  position: absolute;
+  left:0;
+  animation-name: chargeBar-2-6;
+  animation-duration: 4s;
+  border-radius: 5px;
+}
+@keyframes chargeBar-2-6{
+  from {width: 16.66%;}
+  to{width: 33.33%;}
+}
+
+.proccesBar-fill-3-6{
+  content:'';
+  height: 100%;
+  width: 50%;
+  background-color:var(--blue-dark);
+  display: flex;
+  position: absolute;
+  left:0;
+  animation-name: chargeBar-3-6;
+  animation-duration: 4s;
+  border-radius: 5px;
+}
+@keyframes chargeBar-3-6{
+  from {width: 33.33%;}
+  to{width: 50%;}
+}
+.proccesBar-fill-4-6{
+  content:'';
+  height: 100%;
+  width: 66.66%;
+  background-color:var(--blue-dark);
+  display: flex;
+  position: absolute;
+  left:0;
+  animation-name: chargeBar-4-6;
+  animation-duration: 4s;
+  border-radius: 5px;
+}
+@keyframes chargeBar-4-6{
+  from {width: 50%;}
+  to{width: 66.66%;}
+}
+.proccesBar-fill-5-6{
+  content:'';
+  height: 100%;
+  width: 83.33%;
+  background-color:var(--blue-dark);
+  display: flex;
+  position: absolute;
+  left:0;
+  animation-name: chargeBar-5-6;
+  animation-duration: 4s;
+  border-radius: 5px;
+}
+@keyframes chargeBar-5-6{
+  from {width: 66.66%;}
+  to{width: 83.33%;}
+}
+.proccesBar-fill-6-6{
+  content:'';
+  height: 100%;
+  width: 100%;
+  background-color:var(--blue-dark);
+  display: flex;
+  position: absolute;
+  left:0;
+  animation-name: chargeBar-6-6;
+  animation-duration: 4s;
+  border-radius: 5px;
+}
+@keyframes chargeBar-6-6{
+  from {width: 83.33%;}
+  to{width: 100%;}
+}
+.suprBar{
+  height:20px;
+  padding:0 ;
+  margin-bottom:30px;
+  width:75Vw
+}
+.logoIzqIMG {
+  position:absolute;
+  top:0;
+  right:0;
+}
+.logoIzqSpan {
+  color:var(--blue-middle);
+  font-weight: bold;
+  font-size:0.7rem;
+  position:absolute;
+  top:40%;
+  right:0;
+}
+.logoIzqSpan::before{
+  position:absolute;  
+  display: inline-block;
+  content: "";
+  border-bottom: .3rem solid var(--yelow);
+  width: 3rem;
+  margin: 0  0 0 2rem;
+  transform: translateY(1.5rem);
+}
+.checkBox{
+  width:10px;
+  display:inline;
+  margin:5px;
+  padding-top:10px:
+  padding-bottom:10px;
+  border-radius:0.25rem;
+}
+.checkBox .form-check input{
+  display:inline;
+}
+.ImgPreviewContainer{
+  position:relative;
+  width:350px;
+  height:110px;
+  background-color:#F9F9FB ;
+  border: 2px dashed #DDDDDD;
+  padding:25px;
+}
+.ImgPreviewCard{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+.imageContainer, .underTextContainer{
+  display:block;
+  width:auto;
+}
+.imageContainer{
+  width:90px;
+  margin-left:40px;
+  margin-bottom:10px;
+}
+.imageContainer img{
+  width:50px;
+  height:auto;
+}
+.adjuntarFirma{
+  width:auto;
+  height:38px;
+  padding: 5px;
+  border: 2px dashed #DDDDDD;
+  border-radius:5px;
+  overflow:hidden;
+}
+.adjuntarFirma span{
+  margin-right:10px;
+}
+input[type="date"] {
+  position: relative;
+  padding: 10px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: transparent;
+  background: none;
+  position: absolute;
+  left: -50px;
+  z-index: 1;
+  width: 160px;
+  height: 32px;
+  outline: none;
+}
+input[type="date"],input[type="date"]:focus{
+  outline: none;
+  border none;
+  height: 38px;
+}
+.containeFormPage{
+  height: 80 Vh;
+}
+.arrowBack{
+  width: 20px;
+  height: auto;
+  display:inline-block;
+}
+.nextBTN{
+  border-radius:37px !important;
+  border:none;
+  font-weigth:bold !important;
+  color:#FFFFFF !important;
+  background: #5ebdaa; /* Old browsers */
+  background: -moz-linear-gradient(top,  #5ebdaa 12%, #489787 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #5ebdaa 12%,#489787 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #5ebdaa 12%,#489787 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5ebdaa', endColorstr='#489787',GradientType=0 ); /* IE6-9 */
+
+}
+.navigationFooterBar{
+  background-color: #FFFFFF ;
+  position: absolute ;
+ 
+  bottom: 10% ;
+}
+.nextBTN a,.backBTN a{
+  color:#ffffff;
+  text-decoration:none;
+  display:inline-block;
+}
+.backBTN span{
+  margin-left:10px;
+}
+.stepFiveAfirmative{
+  position:relative;
+}
+.stepFiveAfirmative{
+  margin-top:60px;
+}
+.stepFiveAfirmative span{
+  position: absolute;
+  left:22%;
+  top:50%;
+  transform:translateY(-50%)
+}
+.selectAfirmative{
+  width:600px;
+  position: absolute;
+  left:50%;
+  bottom:-60px;
+  transform:translateX(-50%)
+}
+.selectNegative{
+  width:600px;
+  position: absolute;
+  left:50%;
+  bottom:0;
+  transform:translate(-50%,-20%)
+}
+.pdfFooterPage{
+   position: absolute ;
+   bottom: 0% ;
+   width: 750px;
+   height:100px;
+}
+.firmaIMG{
+  width: 150px;
+  height:auto;
+  position:absolute;
+  right:60px;
+}
+.anexoIMG{
+  
+  position:absolute;
+  left:50%;
+  top:10%;
+  transform: translate(-50%,0%);
+}
+.anexoIMG img{
+  max-width: 700px;
+  min-width: 500px;
+  height:auto;
+}
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}
+</style>

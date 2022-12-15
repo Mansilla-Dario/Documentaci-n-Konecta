@@ -1,0 +1,41 @@
+//<script type="text/jsx">
+function StepFiveNegative() {
+  return(
+    <div className="stepFiveNegative container">
+      <div className="row col-sm-12 mt-3">
+        <span>Selecciona el AFP </span>
+      </div>
+      <div className="row col-sm-12 mt-3">
+        <div className="selectOneNegative">
+          <select class="form-select" name ="AfpAfiliadaNueva"   onChange={setDataForm} required>
+            <option selected value="">Elige una AFP</option>
+            <option value="Integra">Integra</option>
+            <option value="SNP">SNP</option>
+          </select>
+        </div>
+      </div>
+
+  
+
+
+      <div className="row col-sm-12 mt-3">
+      <div className="selectOneNegative">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label ">Código único</label>
+          <input type="text" className="form-control" name ="codigoUnicoAFP" onChange={setDataForm}  required />
+        </div>
+      </div>
+      <div className="row col-sm-12 mt-4">
+        <div class="form-check form-check-inline  ">
+          <label class="form-check-label px-0 " for="inlineRadio1">Deseo continuar con mi AFP seleccionada </label>
+          <input class="form-check-input" type="checkbox" role="switch" name ="deseaContinuarAFPSeleccionada"   onChange={setDataForm} required/>
+        </div> 
+      </div>
+    </div>
+      
+      
+      
+  </div>
+    
+  )}
+//</script >

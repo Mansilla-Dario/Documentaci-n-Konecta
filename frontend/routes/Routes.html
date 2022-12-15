@@ -1,0 +1,20 @@
+//<script type="text/jsx">
+
+  function Routes() {
+    return (
+     <Router>
+      {/*<h2>Esta es la ruta en Router</h2>*/}
+      <Switch>
+        <Route  path="/vista-previa" component={VistaPrevia}/>
+        <Route  path="/paso-6" component={StepSix}/>
+        <Route  path="/paso-5" component={StepFive}/>
+        <Route  path="/paso-4" component={StepFour}/>
+        <Route  path="/paso-3" component={StepThree}/>
+        <Route  path="/paso-2" component={StepTwo}/>
+        <Route  path="/paso-1" component={StepOne}/>
+        <Route  path="/" component={Inicio}/>
+      </Switch>
+     </Router>
+    )
+  }
+  //</script>

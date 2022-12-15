@@ -1,0 +1,52 @@
+//<script type="text/jsx">
+function Page2({day,month,year}) {
+  
+  return (
+    <div className="container">
+      <div className="row ">
+        <div className="col-md-12 ">
+          <div className="row">
+            <div className="col-md-12">
+             <strong>3.1 Renta Quinta  </strong>
+              <p className="text-start">Empleador anterior en el Ejercicio:	<strong >SI	__{dataForm.empleadorAnterior=="si"&&"X"}___	NO	__{dataForm.empleadorAnterior=="no"&&"X"}__</strong></p>
+
+              <strong>3.2 Régimen de condición para efectos del Impuesto a la Renta:   </strong>
+              <p className="text-start">Domiciliado:	<strong >SI	__{dataForm.empleadorAnterior=="si"&&"X"}___	NO	__{dataForm.empleadorAnterior=="no"&&"X"}__</strong>___	NO	__{dataForm.domiciliado=="no"&&"X"}</p>
+
+
+              <p className="lh-sm text-wrap">Días de permanencia en el país Perú __{dataForm.diasPeru}___ nací en _________{dataForm.lugarNac}__________(adjuntar comunicación validada y certificada por la Gerencia de la empresa de Recurso Humamos o   Gerente de Administración Y Finanzas según sea el caso).</p>
+
+              <p className="text-start">Fecha del cese del vínculo laboral en último empleo __{dataForm.fechaUltimoEmpleo}__</p>
+              <p className="text-start">El trabajador informó otros ingresos de Renta de Quinta <strong >SI	__{dataForm.otrosIngresos=="si"&&"X"}___	NO	__{dataForm.otrosIngresos=="no"&&"X"}__</strong></p>
+
+              <strong>3.3 Essalud Vida:   </strong> 
+              <p className="text-start">Está afiliado a Essalud Vida:	     <strong >SI	__{dataForm.essalud=="si"&&"X"}___	NO	__{dataForm.essalud=="no"&&"X"}__</strong></p>
+              <strong>3.4 Consideraciones para presentar Descanso Médico:   </strong> 
+              <p>Según nuestro Reglamento de Seguridad y Salud en el Trabajo <strong>(RISS Art. 109 Ind. C)</strong> , todo Descanso Médico Particular debe contener:</p>
+              <ul>
+                <li>Pago de la consulta médica.</li>
+                <li>Certificado Médico, indicando datos del personal y días de Descanso Médico</li>
+                <li>Receta</li>
+                <li>Compra de la Receta</li>
+              </ul>
+              <p>El Descanso Médico debe ser presentado máximo a las 72 hrs de haberse producido el hecho, de presentarse fuera de fecha y/o incompletos, la empresa no asumirá compensación salarial por los días no trabajados, ya que es responsabilidad única y exclusiva del colaborador.
+Ante caso de SUBSIDIOS (más de 20 días de Descanso Médico) se podrá requerir documentos adicionales que sustenten el diagnóstico, en caso de no presentarlos e impidan cualquier tipo de trámite posterior de subsidios en las fechas correspondientes, la empresa no asumirá compensación salarial por los días subsidiados.<br/>
+Adicionalmente, se consigna como Falta Grave sí el Descanso Médico presentado sea Fraudulento o se haya comprobado su comercialización.
+</p>
+            <strong>3.5 Compensación por Tiempo de Servicios (CTS)   </strong> 
+            <p>Moneda:_____{dataForm.eligeCTS}_________</p>
+            <strong>3.6 Pago de haberes   </strong> 
+            <p>Modalidad de pago:______{dataForm.pagoHaberes}________</p>
+            <strong>3.7 Exclusividad    </strong> 
+            <p>Prestó servicios simultáneos en empresas de la competencia (Call center), clientes y proveedores del grupo Konecta. 	<strong >SI	__{dataForm.serviciosSimultaneos=="si"&&"X"}___	NO	__{dataForm.serviciosSimultaneos=="no"&&"X"}__</strong></p>
+            <small>Declaro bajo juramento que la información consignada en esta ficha corresponde a la verdad y asumo la responsabilidad por cualquier problema que pudiera surgir a consecuencia de los datos que he proporcionado.  </small>
+            <p className="mt-3">Lugar y Fecha:<strong> Lima, {day} de {month} del {year}. </strong><strong className="mx-5">Firma del Colaborador: </strong></p>
+            <img src={dataForm.firmaIMG} className="firmaIMG" />
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  )
+}
+//</script >

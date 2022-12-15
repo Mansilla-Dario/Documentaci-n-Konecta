@@ -1,0 +1,69 @@
+//<script type="text/jsx">
+let codeImageArray=[];
+
+
+const loadIMG=(evt)=>{ 
+  
+  var files = evt.target.files; // FileList object
+             
+// Obtenemos la imagen del campo "file".
+for (var i = 0, f; f = files[i]; i++) {
+  //Solo admitimos imágenes.
+  if (!f.type.match('image.*')) {
+      continue;
+  }
+
+  var reader = new FileReader();
+
+  reader.onload = (function(theFile) {
+      return function(e) {
+        // Insertamos la imagen
+        const codeImg= e.target.result;
+        codeImageArray.push(codeImg);
+       
+       //switch para saber a donde mandar la img
+       //para esto evaluaremos el evt.target.name
+       switch(evt.target.name){
+        case "firmaIMG":
+          LoadFirma(codeImg);
+          break;
+        case "certificadoRentas":
+          LoadCertificadoRentas(codeImg);
+          break;
+        case "certificadoRRHH":
+          LoadCertificadoRRHH(codeImg);
+          break;
+        case "dniIMG":
+          LoadDNIIMG(codeImg);
+          break;
+        case "certificadoEstudiosIMG":
+          LoadCertificadoEstudios(codeImg);
+          break;
+        case "certificadoTrabajoIMG":
+          LoadCertificadoTrabajo(codeImg);
+          break;
+        case "antecedentesPolicialesIMG":
+          LoadAntecedentesPoliciales(codeImg);
+          break;
+        case "caracteristicasPCIMG":
+          LoadCaracteristicasPCIMG(codeImg);
+          break;
+        case "velocidadInternetIMG":
+          LoadVelocidadInternetIMG(codeImg);
+          break;
+        default:
+          break;
+        
+        
+       }
+      };
+      
+  })(f);
+
+  reader.readAsDataURL(f);
+}
+}
+
+//<input className="form-control" type="file" id="formFile" onChange={loadIMG}/>
+
+//</script >

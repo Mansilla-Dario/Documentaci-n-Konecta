@@ -1,0 +1,64 @@
+//<script type="text/jsx">
+function Page7({day,month,year}) {
+  return (
+    <div className="container">
+      <div className="row ">
+        <div className="col-md-12 ">
+          <div className="row">
+            <div className="col-md-12 ">
+              <h4 className="text-center mb-5 mt-3"> AUTORIZACIÓN DE ACCESO A EQUIPOS PROPIOS</h4>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <p className="text-end mb-5"><strong> Lima, {day} de {month} del {year}</strong></p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <p className="lh-sm text-wrap">Yo,<strong> {dataForm.apellidos}, {dataForm.nombres}</strong> identificado con <strong>{dataForm.tipoDoc} n°:__{dataForm.nroDoc}</strong> con domicilio <strong>{dataForm.domicilio}</strong> Ubicado en <strong>{dataForm.urbanizacion}</strong> Distrito <strong>{dataForm.distrito}</strong>,
+              Provincia de  <strong>{dataForm.provincia}</strong> y departamento de <strong>{dataForm.departamento}</strong>.; mediante el presente documento declaro lo siguiente:
+              </p>
+              <p className="lh-sm text-wrap">Que autorizo a <strong> Konecta Perú</strong><sup>1</sup> para que acceda a los equipos de mi propiedad, con la finalidad de realizar acciones tendientes al inicio de mis labores y durante la prestación de servicios; en base a las cuales se realizarán:
+              </p>
+              <p className="lh-sm text-wrap"><ol>
+                <li>Las configuraciones para la activación de usuarios, permisos y restricciones para la seguridad de la información.</li>
+                <li>Las configuraciones para el remoteo del equipo.</li>
+                <li>Las revisiones para verificar el cumplimiento normativo a través de auditorías.</li>
+              </ol>
+              </p>
+              <p className="lh-sm text-wrap mb-5">Asimismo, declaro que el consentimiento brindado es libre, expreso e informado previamente; por lo que no ha existido ningún tipo de coacción para el ejercicio del mismo.</p>
+              <p className="lh-sm text-wrap mb-5">Firmo al pie del presente documento en señal de conformidad.</p>  
+              
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="row">
+                <div className="col-md-12 ">
+                  <p className="lh-sm text-wrap ">Mansilla, Darío Germán</p>
+                  
+                  <p className="lh-sm text-wrap mb-5"><strong>NOMBRE</strong></p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12"><br/><br/><br/>
+                <img src={dataForm.firmaIMG} className="firmaIMG" />
+                
+                </div>
+
+              </div>
+            </div>
+            <div className="col-md-8">
+            </div>
+          </div>
+        </div>
+      </div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <sup>1</sup>
+        <small> - Konecta Perú, nombre comercial que contiene a las siguientes razones sociales: Konecta BTO S.L. Sucursal en Perú, Allus Spain S.L. Sucursal del Perú y Stratton Perú S.A.C.</small>
+        
+    </div>
+  )
+}
+//</script >

@@ -1,0 +1,186 @@
+//<script type="text/jsx">
+function StepFive() {
+  const [activaSiguiente, setActivaSiguiente]= useState(false);
+  const [afpAction, setAfpAction]= useState(false);
+  const [afpAnterior, setAfpAnterior]= useState(false);
+  const [deseaContinuar, setDeseaContinuar]= useState(false);
+  const [afiliarINTEGRA, setAfiliarINTEGRA]= useState(false);
+  const [afiliarSNP, setAfiliarSNP]= useState(false);
+
+  const onHandleSubmit=(e)=>{
+    e.preventDefault();
+    setActivaSiguiente(true);
+  }
+  const [AFPState, setAFPState]=useState(false);
+
+  const firstAction=(e)=>{
+    setAfpAction(true)
+    if(e.target.name==="siAFP"){
+      setAfpAnterior(true);
+      const evt={target:{name:"AfpPrevia",value:true}}
+      setDataForm(evt)
+    }
+    if(e.target.name==="noAFP"){
+      setAfpAnterior(false);
+      const evt={target:{name:"AfpPrevia",value:false}}
+      setDataForm(evt)
+    }
+  }
+  const secondAction=(e)=>{
+    
+    if(!afpAction){
+      if(e.target.value==="afiliarIntegra" ||e.target.value==="afiliarSNP"){
+        setAfpAction(true)
+        const evt={target:{name:"AfpPrevia",value:false}}
+        setDataForm(evt);
+        if(e.target.value==="afiliarIntegra"){
+          setAfiliarINTEGRA(!afiliarINTEGRA);
+          const evt={target:{name:e.target.value,value:true}}
+          setDataForm(evt)
+          const evt2={target:{name:"afiliarSNP",value:false}}
+          setDataForm(evt2)
+        }
+        if(e.target.value==="afiliarSNP"){
+          setAfiliarSNP(!afiliarSNP);
+          const evt={target:{name:e.target.value,value:true}}
+          setDataForm(evt);
+          const evt2={target:{name:"afiliarIntegra",value:false}}
+          setDataForm(evt2)
+        }
+      }
+    }else{
+      
+      if(e.target.name==="deseaContinuar"){
+        setDeseaContinuar(!deseaContinuar);
+        const evt={target:{name:e.target.name,value:!deseaContinuar}}
+        setDataForm(evt)
+      }
+      if(e.target.value==="afiliarIntegra"){
+        setAfiliarINTEGRA(!afiliarINTEGRA);
+        const evt={target:{name:e.target.value,value:true}}
+        setDataForm(evt)
+        const evt2={target:{name:"afiliarSNP",value:false}}
+        setDataForm(evt2)
+      }
+      if(e.target.value==="afiliarSNP"){
+        setAfiliarSNP(!afiliarSNP);
+        const evt={target:{name:e.target.value,value:true}}
+        setDataForm(evt);
+        const evt2={target:{name:"afiliarIntegra",value:false}}
+        setDataForm(evt2)
+      }
+      if(e.target.name==="codigoUnico"||e.target.name==="estabaAfiliada"){
+        setDataForm(e)
+      }
+      
+    }
+  }
+  const onHandleAfiliatedState=(e)=>{
+   
+    switch(e.target.value){
+      case "Sí":
+        setAFPState(true);
+        setDataForm(e);
+        break;
+      case "No":
+        setAFPState(false);
+        setDataForm(e);
+        break;
+      default:
+        break;
+    }
+   
+  }
+  useEffect(()=>{},[AFPState])
+  return(
+    <div className="container align-center min-vh-80">
+      <div className=" row containeFormPage">
+        <SuperiorFormBar
+          actual={5}
+          total={6}
+          />
+          <h5 className="mt-0 ">Seleccione la opción adecuada:</h5>
+        <form className="mt-5 d-flex justify-content-center" onSubmit={onHandleSubmit}>
+          <div className="">
+            <div className="form-check">
+                  <input className="form-check-input" type="checkbox" id="flexCheckDefault" name="siAFP" onChange={firstAction} checked={afpAnterior}/>
+                  <label className="form-check-label" for="flexCheckDefault">
+                    Sí, estoy afiliado a la AFP : </label>
+                    {!!afpAnterior&&(
+                      <div>
+                        <select className="form-select  mt-1" aria-label="Default select example" name="estabaAfiliada" id="1" onChange={secondAction} >
+                        <option selected value="">Elige una Opción</option>
+                        <option value="INTEGRA">INTEGRA</option>
+                        <option value="SNP">SNP</option>
+                        </select>
+                        <label className="form-label mt-1">De código único:</label>
+                        <input className="form-control" name="codigoUnico" type="text" onChange={secondAction}/>
+                      </div>
+                    )}  secondAction
+                  
+            </div> 
+            {!!afpAnterior&&(
+              <div className="form-check mb-5 ">
+              <input className="form-check-input mx-3  mt-1" type="checkbox" name="deseaContinuar" id="flexCheckDefault" onChange={secondAction}/>
+              <label className="form-check-label" for="flexCheckDefault">
+                Deseo continuar
+              </label>
+            </div> 
+            )}
+            
+            <div className="form-check">
+              <input className="form-check-input" type="checkbox"  name="noAFP" onChange={firstAction} checked={!afpAnterior}/>
+              <label className="form-check-label" for="flexCheckDefault">
+                No estoy afiliado a ninguna AFP
+              </label>
+            </div>
+            {!afpAnterior&&(
+              <div className="form-check mb-1">
+              <input className="form-check-input mx-3" type="radio"   name="deseoAfiliarme" value="afiliarIntegra" onChange={secondAction}/>
+              <label className="form-check-label " for="flexCheckDefault">
+                Deseo afiliarme a la AFP INTEGRA
+              </label>
+            </div>
+            )}
+            {!afpAnterior&&(
+              <div className="form-check mb-5">
+              <input className="form-check-input mx-3" type="radio"  name="deseoAfiliarme" value="afiliarSNP" onChange={secondAction}/>
+              <label className="form-check-label " for="flexCheckDefault">
+                Deseo afiliarme a la AFP SNP
+              </label>
+            </div>
+            )}
+            
+            
+            
+        </div>
+
+
+
+          
+          <footer className="container navigationFooterBar">
+            <div className="position-relative">
+              <div className="back position-absolute top-50 start-0">
+                <NavLink to= {"/paso-4"} className= "btn backBTN"> 
+                  <div className="arrowBack">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="11" viewBox="0 0 16.094 11">
+                      <path id="keyboard_backspace_FILL0_wght400_GRAD0_opsz48_1_" data-name="keyboard_backspace_FILL0_wght400_GRAD0_opsz48 (1)" d="M11.6,22.317l-5-4c-.077-.077.031.077,0,0s0,.092,0,0-.031-.923,0-1-.077.077,0,0l5-4c.122-.122-.2-.992,0-1s.862.862,1,1,0-.191,0,0,.138-.138,0,0l-4,4h14c.2,0-.13-.13,0,0s0,.8,0,1,.13-.13,0,0,.2,0,0,0H8.6l4,4c.122.122-.008-.191,0,0s.138-.138,0,0-.809,1-1,1S11.738,22.455,11.6,22.317Z" transform="translate(-6.572 -12.317)" fill="#1e3050"/>
+                    </svg>
+                  </div>
+                  <span> Atrás</span></NavLink>
+              </div>
+              <div className="next position-absolute top-50 end-0 " >
+              <button type="submit" className={!!activaSiguiente?"btn nextBTN disabledbutton":"btn nextBTN "}  >Enviar Datos</button>
+              <NavLink to= {"/paso-6"} className={!!activaSiguiente?"btn nextBTN ":"btn nextBTN disabledbutton"} > Siguiente </NavLink>
+              </div>
+            </div>
+          </footer> 
+        </form>
+      </div>
+     
+   
+           
+    </div>
+  )
+}
+//</script>

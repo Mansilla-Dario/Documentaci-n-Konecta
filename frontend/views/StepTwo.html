@@ -1,0 +1,220 @@
+//<script type="text/jsx">
+
+function StepTwo() {
+  const [activaSiguiente, setActivaSiguiente]= useState(false);
+  const onHandleSubmit=(e)=>{
+    e.preventDefault();
+    
+  }
+  const nivelEducativo=(e)=>{
+   
+    let opc=e.target.value+e.target.id
+    setActivaSiguiente(true)
+    setNivelEstudio(opc);
+    
+  }
+  return(
+    <div className="container align-center min-vh-100">
+      <div className="row containeFormPage">
+        <SuperiorFormBar
+          actual={2}
+          total={6}
+          />
+      <form className="mt-5 "onSubmit={onHandleSubmit}>
+        <div className="container">
+          <div className="row col-sm-12 mx-0  my-3 px-0">
+            <div className="col-sm-4 mx-0 px-0">
+              <div className="col mb-4 mx-0 px-0">Primaria</div>
+              
+              <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label  px-0" for="inlineRadio1">Incompleta</label>
+                <input class="form-check-input" type="radio" name="choice" value="primaria" id="incompleta" onChange={nivelEducativo} />  
+                </div>      
+              </div>
+              <div class="checkBox shadow-sm  py-2 px-0  bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label px-0 " for="inlineRadio1">Completa </label>
+                  <input class="form-check-input" type="radio" name="choice" value="primaria" id="completa" onChange={nivelEducativo} />  
+                </div>      
+              </div>
+            </div>
+            {/************* */}
+            <div className="col-sm-4 mx-0 px-0">
+              <div className="col mb-4 mx-0 px-0">Secundaria</div>
+              
+              <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label  px-0" for="inlineRadio1">Incompleta</label>
+                <input class="form-check-input" type="radio" name="choice" value="secundaria" id="incompleta" onChange={nivelEducativo}/> 
+                </div>      
+              </div>
+              <div class="checkBox shadow-sm  py-2 px-0  bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label px-0 " for="inlineRadio1">Completa </label>
+                <input class="form-check-input" type="radio" name="choice" value="secundaria" id="completa" onChange={nivelEducativo}/> 
+                </div>      
+              </div>
+            </div>
+            {/************* */}
+            <div className="col-sm-4 mx-0 px-0">
+              <div className="col mb-4 mx-0 px-0">Técnica</div>
+              
+              <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label  px-0" for="inlineRadio1">Incompleta</label>
+                <input class="form-check-input" type="radio" name="choice" value="tecnica" id="incompleta" onChange={nivelEducativo}/> 
+                </div>      
+              </div>
+              <div class="checkBox shadow-sm  py-2 px-0  bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label px-0 " for="inlineRadio1">Completa </label>
+                <input class="form-check-input" type="radio" name="choice" value="tecnica" id="completa" onChange={nivelEducativo}/> 
+                </div>      
+              </div>
+            </div>
+          </div>
+            {/*******FIN DEL ROW****** */}
+            
+            <div className="row col-sm-12 mx-0  my-3 px-0">
+            <div className="col-sm-4 mx-0 px-0">
+              <div className="col mb-4 mx-0 px-0">Superior I.S.T</div>
+             
+              <div class="checkBox shadow-sm  py-2 px-0  bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label  px-0" for="inlineRadio1">Incompleta</label>
+                <input class="form-check-input" type="radio" name="choice" value="superiorIST" id="incompleta" onChange={nivelEducativo}/>
+                </div>      
+              </div>
+              <div class="checkBox shadow-sm  py-2 px-0  bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label px-0 " for="inlineRadio1">Completa </label>
+                <input class="form-check-input" type="radio" name="choice" value="superiorIST" id="completa" onChange={nivelEducativo}/> 
+                </div>      
+              </div>
+            </div>
+            {/************* */}
+            <div className="col-sm-4 mx-0 px-0">
+              <div className="col mb-4 mx-0 px-0">Universidad</div>
+              
+              <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label  px-0" for="inlineRadio1">Incompleta</label>
+                <input class="form-check-input" type="radio" name="choice" value="universidad" id="incompleta" onChange={nivelEducativo}/>
+                </div>      
+              </div>
+              <div class="checkBox shadow-sm  py-2 px-0  bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label px-0 " for="inlineRadio1">Completa </label>
+                <input class="form-check-input" type="radio" name="choice" value="universidad" id="completa" onChange={nivelEducativo}/> 
+                </div>      
+              </div>
+            </div>
+            {/************* */}
+            <div className="col-sm-4 mx-0 px-0">
+              <div className="col mb-4 mx-0 px-0">Bachiller</div>
+              
+              <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label  px-0" for="inlineRadio1">Incompleta</label>
+                <input class="form-check-input" type="radio" name="choice" value="bachiller" id="incompleta" onChange={nivelEducativo}/>
+                </div>      
+              </div>
+              <div class="checkBox shadow-sm  py-2 px-0  bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label px-0 " for="inlineRadio1">Completa </label>
+                <input class="form-check-input" type="radio" name="choice" value="bachiller" id="completa" onChange={nivelEducativo}/> 
+                </div>      
+              </div>
+            </div>
+          </div>
+            {/*******FIN DEL ROW****** */}
+            <div className="row col-sm-12 mx-0  my-3 px-0">
+            <div className="col-sm-4 mx-0 px-0">
+              <div className="col mb-4 mx-0 px-0">Maestría</div>
+              
+              <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label  px-0" for="inlineRadio1">Incompleta</label>
+                <input class="form-check-input" type="radio" name="choice" value="maestria" id="incompleta" onChange={nivelEducativo}/> 
+                </div>      
+              </div>
+              <div class="checkBox shadow-sm  py-2 px-0  bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label px-0 " for="inlineRadio1">Completa </label>
+                <input class="form-check-input" type="radio" name="choice" value="maestria" id="completa" onChange={nivelEducativo}/>
+                </div>      
+              </div>
+            </div>
+            {/************* */}
+            <div className="col-sm-4 mx-0 px-0">
+              <div className="col mb-4 mx-0 px-0">Doctorado</div>
+              
+              <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label  px-0" for="inlineRadio1">Incompleta</label>
+                <input class="form-check-input" type="radio" name="choice" value="doctorado" id="incompleta" onChange={nivelEducativo}/> 
+                </div>      
+              </div>
+              <div class="checkBox shadow-sm  py-2 px-0  bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label px-0 " for="inlineRadio1">Completa </label>
+                <input class="form-check-input" type="radio" name="choice" value="doctorado" id="completa" onChange={nivelEducativo}/> 
+                </div>      
+              </div>
+            </div>
+            {/************* */}
+            
+
+            <div className="col-sm-4 mx-0  px-0">
+              <div class="checkBox shadow-sm  py-2 px-0  bg-light">
+                <div class="form-check form-check-inline  ">
+                <div className="col mb-4 mx-0 px-0">Otros...</div>
+                <label class="form-check-label px-0 " for="inlineRadio1">Titulado </label>
+                <input class="form-check-input" type="radio" name="choice" value="titulado" id="titulado" onChange={nivelEducativo}/>
+                </div>      
+              </div>
+              <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
+                <div class="form-check form-check-inline  ">
+                <label class="form-check-label  px-0" for="inlineRadio1">Sin Educ Formal</label>
+                <input class="form-check-input" type="radio" name="choice" value="educformal" id="educformal" onChange={nivelEducativo}/> 
+                </div>      
+              </div>
+            </div>
+          </div>
+            {/*******FIN DEL ROW****** */}
+        </div>
+        <footer className="container navigationFooterBar">
+          <div className="position-relative">
+            <div className="back position-absolute top-50 start-0">
+              <NavLink to= {"/paso-1"} className= "btn backBTN"> 
+                <div className="arrowBack">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="11" viewBox="0 0 16.094 11">
+                    <path id="keyboard_backspace_FILL0_wght400_GRAD0_opsz48_1_" data-name="keyboard_backspace_FILL0_wght400_GRAD0_opsz48 (1)" d="M11.6,22.317l-5-4c-.077-.077.031.077,0,0s0,.092,0,0-.031-.923,0-1-.077.077,0,0l5-4c.122-.122-.2-.992,0-1s.862.862,1,1,0-.191,0,0,.138-.138,0,0l-4,4h14c.2,0-.13-.13,0,0s0,.8,0,1,.13-.13,0,0,.2,0,0,0H8.6l4,4c.122.122-.008-.191,0,0s.138-.138,0,0-.809,1-1,1S11.738,22.455,11.6,22.317Z" transform="translate(-6.572 -12.317)" fill="#1e3050"/>
+                  </svg>
+                </div>
+                <span> Atrás</span></NavLink>
+                
+                
+            </div>
+            
+            <div className="next position-absolute top-50 end-0 " >
+            <button type="submit" className={!!activaSiguiente?"btn nextBTN disabledbutton":"btn nextBTN "}  >Enviar Datos</button>
+            <NavLink to= {"/paso-3"} className={!!activaSiguiente?"btn nextBTN ":"btn nextBTN disabledbutton"} > Siguiente </NavLink>
+
+              
+            
+                
+                
+            </div>
+          </div>
+        </footer>  
+        
+      </form>
+      
+      </div>
+   
+    </div>
+)}
+
+//</script >

@@ -1,0 +1,112 @@
+//<script type="text/jsx">
+
+
+let  nivelDeEstudio={
+  primariaincompleta:false,
+  primariacompleta:false,
+  secundariaincompleta:false,
+  secundariacompleta:false,
+  tecnicaincompleta:false,
+  tecnicacompleta:false,
+  superiorISTincompleta:false,
+  superiorISTcompleta:false,
+  universidadincompleta:false,
+  universidadcompleta:false,
+  bachillerincompleta:false,
+  bachillercompleta:false,
+  maestriaincompleta:false,
+  maestriacompleta:false,
+  doctoradoincompleta:false,
+  doctoradocompleta:false,
+  tituladotitulado:false,
+  educformaleducformal:false,
+}
+let dataForm={
+ familiares:[{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""}]
+};
+const setDataForm=(e)=>{
+  dataForm={
+    ...dataForm,
+  [e.target.name]: [e.target.value]
+  }
+  console.log("dataForm:", dataForm)
+}
+const setNivelEstudio=(opc)=>{
+  dataForm={
+    ...dataForm,
+    nivelEstudio:{
+      ...nivelDeEstudio,
+      [opc]:true
+    }
+  }
+  console.log("dataForm:", dataForm) 
+}
+const setFlia=(flia,i)=>{
+  console.log("I ES",i)
+  dataForm.familiares[i]=flia[i]
+}
+const LoadFirma=(codeImageArray)=>{
+  dataForm={
+    ...dataForm,
+    firmaIMG: [codeImageArray]
+  }
+  console.log("dataForm:", dataForm) 
+}
+const LoadCertificadoRentas=(codeImageArray)=>{
+  dataForm={
+    ...dataForm,
+    certificadoRentas: [codeImageArray]
+  }
+  console.log("dataForm:", dataForm) 
+}
+const LoadCertificadoRRHH=(codeImageArray)=>{
+  dataForm={
+    ...dataForm,
+    certificadoRRHH: [codeImageArray]
+  }
+  console.log("dataForm:", dataForm) 
+}
+const LoadDNIIMG=(codeImageArray)=>{
+  dataForm={
+    ...dataForm,
+    dniIMG: [codeImageArray]
+  }
+  console.log("dataForm:", dataForm) 
+}
+const LoadCertificadoEstudios=(codeImageArray)=>{
+  dataForm={
+    ...dataForm,
+    certificadoEstudios: [codeImageArray]
+  }
+  console.log("dataForm:", dataForm) 
+}
+const LoadCertificadoTrabajo=(codeImageArray)=>{
+  dataForm={
+    ...dataForm,
+    certificadoTrabajo: [codeImageArray]
+  }
+  console.log("dataForm:", dataForm) 
+}
+const LoadAntecedentesPoliciales=(codeImageArray)=>{
+  dataForm={
+    ...dataForm,
+    antecedentesPoliciales: [codeImageArray]
+  }
+  console.log("dataForm:", dataForm) 
+}
+const LoadCaracteristicasPCIMG=(codeImageArray)=>{
+  dataForm={
+    ...dataForm,
+    caracteristicasPC: [codeImageArray]
+  }
+  console.log("dataForm:", dataForm) 
+}
+const LoadVelocidadInternetIMG=(codeImageArray)=>{
+  dataForm={
+    ...dataForm,
+    velocidadInternet: [codeImageArray]
+    
+  }
+  console.log("dataForm:", dataForm) 
+}
+//</script>

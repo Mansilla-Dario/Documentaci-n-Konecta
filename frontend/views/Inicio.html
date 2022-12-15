@@ -1,0 +1,39 @@
+//<script type="text/jsx">
+
+function Inicio() {
+  
+  return (
+    <div className="containerInicio">
+      <div className="logoInicio">
+        <LogoKonecta
+        w={"199"}
+        h={"36.779"}
+        color={"#1E3050"}
+        />
+        <span>Documentación</span>
+      </div >
+      <div className="informationBox">
+        <span className="informationIcon">
+          <LogoInformacion
+          w={"25"}
+          h={"45"}
+          />
+        </span>
+        <h2>Aviso</h2>
+        <p>Asegúrese de contar con los anexos y datos necesarios para completar la documentación requerida.
+          La información no se guardará en el sistema por lo que si interrumpe el proceso deberá re-iniciarlo.</p>
+      
+      <div className="iniciarBTN">
+        {/* <Link className="btn btn-primary" to ="/vista-previa">
+          Iniciar
+        </Link> */}
+        <Link className="btn nextBTN" to ="/paso-1">
+          Iniciar
+        </Link>
+      </div>
+      </div>
+    </div>
+  )
+}
+
+//</script>

@@ -1,0 +1,118 @@
+//<script type="text/jsx">
+function VistaPrevia() {
+  let date = new Date()
+  const meses=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
+  let day = date.getDate()
+  let monthNumber = date.getMonth() 
+  let year = date.getFullYear()
+  const month=meses[monthNumber];
+  
+  
+  return (
+    <div id ="pdfPage">
+      <div class="sticky-top bg-secundary zindex-sticky"><BannerVistaPrevia/></div>
+      
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page1
+                day={day}
+                month={month}
+                year={year}
+              />
+              <FooterPage/>
+            </page>
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page2 
+                day={day}
+                month={month}
+                year={year}/>
+              <FooterPage/>            
+            </page> 
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page3
+                day={day}
+                month={month}
+                year={year}/>
+              <FooterPage/>            
+            </page> 
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page4
+                day={day}
+                month={month}
+                year={year}/>
+              <FooterPage/>            
+            </page> 
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page5
+                day={day}
+                month={month}
+                year={year}/> 
+              <FooterPage/>           
+            </page> 
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page6
+                day={day}
+                month={month}
+                year={year}/>
+              <FooterPage/>            
+            </page> 
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page7
+                day={day}
+                month={month}
+                year={year}/>
+              <FooterPage/>            
+            </page> 
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page8/>
+              <FooterPage/>            
+            </page> 
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page9/>
+              <FooterPage/>            
+            </page>  
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page10/>
+              <FooterPage/>            
+            </page> 
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page11/>
+              <FooterPage/>            
+            </page> 
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page12/>
+              <FooterPage/>            
+            </page> 
+            {/* ******************* */}
+            <page className="position-relative">
+              <HeaderPage/>
+              <Page13/> 
+              <FooterPage/>           
+            </page> 
+            {/* ******************* */}
+            
+    </div>
+  )}
+ //</script >

@@ -1,0 +1,20 @@
+{
+  "name": "documentacion-konecta",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "glogin": "clasp login",
+    "glogout": "clasp logout",
+    "gcreate": "clasp create  --title 'Documentación Konecta'--rootDir ./apps-script",
+    "gclone": "clasp clone 1s7aXMuJfRYc-K2wH87Lx-YHYPbRbesq612TIxW8OxTx2ftKvSfUk7aHy --rootDir ./apps-script",
+    "gpull": "clasp pull",
+    "gpush": "clasp push",
+    "gstart": "clasp push --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.56"
+  }
+}

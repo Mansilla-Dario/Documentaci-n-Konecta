@@ -1,0 +1,21 @@
+//<script type="text/jsx">
+
+const convert2PDF= async()=>{
+//sacar un screen al div
+// html2canvas(document.querySelector('#pdfPage')).then((canvas)=>{
+//   let base64Image= canvas.toDataURL('image/png');
+//   console.log(base64Image)
+// })
+let banner= document.getElementById("BannerVistaPrevia")
+banner.classList.add("invisible");
+
+
+window.print()
+  //crear PDF
+  banner.classList.remove("invisible");
+}
+
+
+
+
+//</script >

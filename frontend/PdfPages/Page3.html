@@ -1,0 +1,54 @@
+//<script type="text/jsx">
+function Page3({day,month,year}) {
+  return (
+    <div className="container">
+      <div className="row ">
+        <div className="col-md-12 ">
+          <div className="row">
+            <div className="col-md-12 ">
+              <h4 className="text-center mb-5 mt-3"> Declaración Jurada de Datos y Domicilio Legal</h4>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <p className="text-end mb-5"><strong> Lima, {day} de {month} del {year}</strong></p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <p className="lh-sm text-wrap">El que suscribe……………<strong>{dataForm.apellidos}, {dataForm.nombres}</strong>......  <strong>{dataForm.tipoDoc} n°:__{dataForm.nroDoc}</strong> con domicilio actual en (Av./Clle./Mz./Lt. – Int/Dpto).. ..<strong>{dataForm.domicilio}</strong>.. Urbanización .....<strong>{dataForm.urbanizacion}</strong>..... Distrito:..<strong>{dataForm.distrito}</strong>.. Provincia: <strong>{dataForm.provincia}</strong>..................
+              
+              </p>
+              <p className="lh-sm text-wrap">Telef.: ………....<strong>{dataForm.telMovil}</strong>......</p>
+              <p className="lh-sm text-wrap"><strong>Referencias adicionales:</strong></p>
+              <p className="lh-sm text-wrap mb-5">Asimismo, declaro que el consentimiento brindado es libre, expreso e informado previamente; por lo que no ha existido ningún tipo de coacción para el ejercicio del mismo.</p>
+              <p className="lh-sm text-wrap mb-5">Declaro dicho domicilio como actual y legal ante cualquier notificación o control de la Empresa, comprometiéndome  a comunicar fehacientemente dentro de las cuarenta y ocho horas, su cambio o modificación.</p>  
+              
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="row">
+                <div className="col-md-12 ">
+                  <p className="lh-sm text-wrap ">{dataForm.apellidos}, {dataForm.nombres}</p>
+                  
+                  <p className="lh-sm text-wrap mb-5"><strong>NOMBRE</strong></p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12"><br/><br/><br/>
+                <img src={dataForm.firmaIMG} className="firmaIMG" />
+                
+                
+                </div>
+              </div>
+            </div>
+            <div className="col-md-8">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+//</script >

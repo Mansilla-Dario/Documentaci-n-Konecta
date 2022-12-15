@@ -1,0 +1,281 @@
+//<script type="text/jsx">
+function StepThree() {
+  const [activaSiguiente, setActivaSiguiente]= useState(false);
+  const onHandleSubmit=(e)=>{
+    e.preventDefault();
+    setActivaSiguiente(true);
+  }
+  let flia=[];  
+  const setearFila=(fila,name,value)=>{
+    let i=+fila-1;
+    flia[i]={
+      ...flia[i],
+      [name]:value
+     }
+     setFlia(flia,i);
+  }
+  const familiares=(e)=>{
+    //son sólo 5 filas:.........
+    // si id=#
+    //fila #= {nombApellido:"",parentesco:"",edad:0,sexo:"",tipoDoc:"",nroDoc:0}
+    setearFila(e.target.id,e.target.name,e.target.value);
+  }
+  return(
+    <div className="container align-center min-vh-100">
+      <div className="row containeFormPage ">
+        <SuperiorFormBar
+        actual={3}
+        total={6}
+        />
+        <form className="mt-5 " onSubmit={onHandleSubmit}>
+          <div className="container">
+            
+            <div className="row col-sm-12 mx-0 px-0">
+              <div className="col-sm-3 mx-0 px-1">
+                  <div className="mb-3">
+                    <label for="exampleFormControlInput1" className="form-label text-sm-start">Nombres y Apellidos completos</label>
+                    <input type="text" className="form-control" name="nombApellido" id="1" onChange={familiares} />
+                  </div>
+              </div>
+              <div className="col-sm-2 mx-0 px-1">
+                <div className="mb-3">
+                  <label for="exampleFormControlInput1" className="form-label">Parentesco</label>
+                  <input type="text" className="form-control" name="parentesco" id="1" onChange={familiares} />
+                </div>
+              </div>
+              <div className="col-sm-1 mx-0 px-1">
+                <div className="mb-3">
+                  <label for="exampleFormControlInput1" className="form-label">Edad</label>
+                  <input type="text" className="form-control" name="edad" id="1" onChange={familiares} />
+                </div>
+              </div>
+              <div className="col-sm-2 mx-0 px-1">
+                <div className="mb-3">
+                  <label for="exampleFormControlInput1" className="form-label">Sexo</label>
+                  <select class="form-select" aria-label="Default select example" name="sexo" id="1" onChange={familiares} >
+                    <option selected>Elige una Opción</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otros">Otros</option>
+                  </select>
+                  
+                </div>
+              </div>
+              <div className="col-sm-1  mx-0 px-1">
+                <div className="mb-3 mx-0 px-0">
+                  <label for="exampleFormControlInput1" className="form-label">Tipo Doc</label>
+                    <select class="form-select" aria-label="Default select example" name="tipoDoc" id="1" onChange={familiares}>
+                      <option selected></option>
+                      <option value="D.N.I">D.N.I</option>
+                      <option value="C.E">C.E.</option>
+                    </select>
+                </div>
+              </div>
+              <div className="col-sm-3  mx-0 px-1">
+                <div className="mb-3">
+                  <label for="exampleFormControlInput1" className="form-label">Nro de Doc</label>
+                  <input type=" number" className="form-control" name="nroDoc" id="1" onChange={familiares} />
+                  
+                </div>
+              </div>
+            </div>
+            <div className="row col-sm-12 mx-0 my-2 px-0">
+              <div className="col-sm-3 mx-0 px-1">
+                  <div className="mb-3">
+                    <input type="text" className="form-control" name="nombApellido" id="2" onChange={familiares} />
+                  </div>
+              </div>
+              <div className="col-sm-2 mx-0 px-1">
+                <div className="mb-3">
+                  <input type="text" className="form-control" name="parentesco" id="2" onChange={familiares}/>
+                </div>
+              </div>
+              <div className="col-sm-1 mx-0 px-1">
+                <div className="mb-3">
+                  <input type="text" className="form-control" name="edad" id="2" onChange={familiares} />
+                </div>
+              </div>
+              <div className="col-sm-2 mx-0 px-1">
+                <div className="mb-3">
+                <select class="form-select" aria-label="Default select example" name="sexo" id="2" onChange={familiares} >
+                    <option selected>Elige una Opción</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otros">Otros</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col-sm-1  mx-0 px-1">
+                <div className="mb-3 mx-0 px-0">
+                <select class="form-select" aria-label="Default select example" name="tipoDoc" id="2" onChange={familiares}>
+                      <option selected></option>
+                      <option value="D.N.I">D.N.I</option>
+                      <option value="C.E">C.E.</option>
+                    </select>
+                </div>
+              </div>
+              <div className="col-sm-3  mx-0 px-1">
+                <div className="mb-3">
+                <input type=" number" className="form-control" name="nroDoc" id="2" onChange={familiares} />
+                </div>
+              </div>
+            </div>
+            <div className="row col-sm-12 mx-0 my-2 px-0">
+              <div className="col-sm-3 mx-0 px-1">
+                  <div className="mb-3">
+                    <input type="text" className="form-control" name="nombApellido" id="3" onChange={familiares} />
+                  </div>
+              </div>
+              <div className="col-sm-2 mx-0 px-1">
+                <div className="mb-3">
+                  <input type="text" className="form-control" name="parentesco" id="3" onChange={familiares} />
+                </div>
+              </div>
+              <div className="col-sm-1 mx-0 px-1">
+                <div className="mb-3">
+                  <input type="text" className="form-control" name="edad" id="3" onChange={familiares} />
+                </div>
+              </div>
+              <div className="col-sm-2 mx-0 px-1">
+                <div className="mb-3">
+                <select class="form-select" aria-label="Default select example" name="sexo" id="3" onChange={familiares}>
+                    <option selected>Elige una Opción</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otros">Otros</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col-sm-1  mx-0 px-1">
+                <div className="mb-3 mx-0 px-0">
+                <select class="form-select" aria-label="Default select example" name="tipoDoc" id="3" onChange={familiares}>
+                      <option selected></option>
+                      <option value="D.N.I">D.N.I</option>
+                      <option value="C.E">C.E.</option>
+                    </select>
+                </div>
+              </div>
+              <div className="col-sm-3  mx-0 px-1">
+                <div className="mb-3">
+                <input type=" number" className="form-control"name="nroDoc" id="3" onChange={familiares} />
+                </div>
+              </div>
+            </div>
+            <div className="row col-sm-12 mx-0 my-2 px-0">
+              <div className="col-sm-3 mx-0 px-1">
+                  <div className="mb-3">
+                    <input type="text" className="form-control" name="nombApellido" id="4" onChange={familiares} />
+                  </div>
+              </div>
+              <div className="col-sm-2 mx-0 px-1">
+                <div className="mb-3">
+                  <input type="text" className="form-control" name="parentesco" id="4" onChange={familiares} />
+                </div>
+              </div>
+              <div className="col-sm-1 mx-0 px-1">
+                <div className="mb-3">
+                  <input type="text" className="form-control" name="edad" id="4" onChange={familiares}/>
+                
+                </div>
+              </div>
+              <div className="col-sm-2 mx-0 px-1">
+                <div className="mb-3">
+                <select class="form-select" aria-label="Default select example" name="sexo" id="4" onChange={familiares}>
+                    <option selected>Elige una Opción</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otros">Otros</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col-sm-1  mx-0 px-1">
+                <div className="mb-3 mx-0 px-0">
+                <select class="form-select" aria-label="Default select example" name="tipoDoc" id="4" onChange={familiares}>
+                      <option selected></option>
+                      <option value="D.N.I">D.N.I</option>
+                      <option value="C.E">C.E.</option>
+                    </select>
+                </div>
+              </div>
+              <div className="col-sm-3  mx-0 px-1">
+                <div className="mb-3">
+                <input type=" number" className="form-control" name="nroDoc" id="4" onChange={familiares} />
+                </div>
+              </div>
+            </div>
+            <div className="row col-sm-12 mx-0 my-2 px-0">
+              <div className="col-sm-3 mx-0 px-1">
+                  <div className="mb-3">
+                    <input type="text" className="form-control" name="nombApellido" id="5" onChange={familiares} />
+                  </div>
+              </div>
+              <div className="col-sm-2 mx-0 px-1">
+                <div className="mb-3">
+                  <input type="text" className="form-control" name="parentesco" id="5" onChange={familiares} />
+                </div>
+              </div>
+              <div className="col-sm-1 mx-0 px-1">
+                <div className="mb-3">
+                  <input type="text" className="form-control" name="edad" id="5" onChange={familiares} />
+                </div>
+              </div>
+              <div className="col-sm-2 mx-0 px-1">
+                <div className="mb-3">
+                <select class="form-select" aria-label="Default select example" name="sexo" id="5" onChange={familiares}>
+                    <option selected>Elige una Opción</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otros">Otros</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col-sm-1  mx-0 px-1">
+                <div className="mb-3 mx-0 px-0">
+                  
+                  <select class="form-select" aria-label="Default select example" name="tipoDoc" id="5" onChange={familiares}>
+                      <option selected></option>
+                      <option value="D.N.I">D.N.I</option>
+                      <option value="C.E">C.E.</option>
+                    </select>
+                </div>
+              </div>
+              <div className="col-sm-3  mx-0 px-1">
+                <div className="mb-3">
+                <input type=" number" className="form-control" name="nroDoc" id="5" onChange={familiares} />
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <footer className="container navigationFooterBar">
+            <div className="position-relative">
+              <div className="back position-absolute top-50 start-0">
+                <NavLink to= {"/paso-2"} className= "btn backBTN"> 
+                  <div className="arrowBack">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="11" viewBox="0 0 16.094 11">
+                      <path id="keyboard_backspace_FILL0_wght400_GRAD0_opsz48_1_" data-name="keyboard_backspace_FILL0_wght400_GRAD0_opsz48 (1)" d="M11.6,22.317l-5-4c-.077-.077.031.077,0,0s0,.092,0,0-.031-.923,0-1-.077.077,0,0l5-4c.122-.122-.2-.992,0-1s.862.862,1,1,0-.191,0,0,.138-.138,0,0l-4,4h14c.2,0-.13-.13,0,0s0,.8,0,1,.13-.13,0,0,.2,0,0,0H8.6l4,4c.122.122-.008-.191,0,0s.138-.138,0,0-.809,1-1,1S11.738,22.455,11.6,22.317Z" transform="translate(-6.572 -12.317)" fill="#1e3050"/>
+                    </svg>
+                  </div>
+                  <span> Atrás</span></NavLink>
+                  
+                  
+              </div>
+              
+              <div className="next position-absolute top-50 end-0 " >
+              <button type="submit" className={!!activaSiguiente?"btn nextBTN disabledbutton":"btn nextBTN "}  >Enviar Datos</button>
+              <NavLink to= {"/paso-4"} className={!!activaSiguiente?"btn nextBTN ":"btn nextBTN disabledbutton"} > Siguiente </NavLink>
+
+                
+              
+                  
+                  
+              </div>
+            </div>
+          </footer> 
+          </form>
+      
+      </div>
+   
+    </div>
+)}
+//</script>

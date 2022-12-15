@@ -1,0 +1,18 @@
+//<script type="text/jsx">
+function ProccesBar(props) {
+  return (
+   
+      <div className="box-procces-section">
+        <div className="proccesBar-container">
+          <span>
+           Progreso {props.actual}/{props.total}
+          </span>
+          <div className={`proccesBar-fill-${props.actual}-${props.total}`}>
+            
+          </div>
+        </div>
+      </div>
+    
+  );
+}
+//</script >
