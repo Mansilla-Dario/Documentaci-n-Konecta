@@ -6,13 +6,70 @@ function StepOne() {
   const [sexElection, setSexElection]= useState("");
   const [sexTermination, setSexTermination]= useState("@");
   const [activaSiguiente, setActivaSiguiente]= useState(false);
-  const estadoCivil=["Solter","Casad","Viud","Divorciad"]
+  const estadoCivil=["Solter","Casad","Viud","Divorciad"];
+  const expresiones = {
+    dni:/^\d{8}$/,
+    ce:/^\d{9}$/,
+    telMovil:/^\d{9}$/
+  }
+  const validateMoviltNumber=(type,number)=>{
+    if(expresiones.telMovil.test(number)){
+      return true
+    }else{
+      swal({
+        title: "Error en el Número de Teléfono Móvil!",
+        text: "Asegurese de que el número de Teléfono Móvil posea 9 dígitos",
+        icon: "warning",
+        dangerMode: true,
+      })
+      return false
+    } 
+  }
   
-  console.log("activaSiguiente ",activaSiguiente)
-  
+  const validateDocumentNumber=(type,number)=>{ 
+    switch (type){
+      case "D.N.I":
+        // Validar si DNI es 8 dígitos    /^\d{8}$/
+        if(expresiones.dni.test(number)){
+          return true
+        }else{
+          swal({
+            title: "Error en el Número de DNI!",
+            text: "Asegurese de que el número de DNI posea 8 dígitos",
+            icon: "warning",
+            dangerMode: true,
+          })
+          return false
+        } 
+        break;
+      case "C.E":
+        //validar que C.E es de 9 dígitos /^\d{9}$/
+        if(expresiones.ce.test(number)){
+          return true
+        }else{
+          swal({
+            title: "Error en el Número de C.E!",
+            text: "Asegurese de que el número de C.E posea 9 dígitos",
+            icon: "warning",
+            dangerMode: true,
+          })
+          return false
+        } 
+        break;
+      
+      default:
+        break
+    }
+  }
   const onHandleSubmit=(e)=>{
     e.preventDefault();
-    setActivaSiguiente(true);
+    const docType=e.target[7].value
+    const nroDNI=e.target[8].value
+    const telmovil=e.target[12].value
+    if(validateDocumentNumber(docType,nroDNI) && validateMoviltNumber("telMovil",telmovil)){
+      setActivaSiguiente(true);
+    }
+    
   }
   const sexElected=(e)=>{
     let sex= e.target.value;
@@ -44,31 +101,35 @@ function StepOne() {
         actual={1}
         total={6}
         />
-      <form className="mt-3 " onSubmit={onHandleSubmit}>
+       <div className="container">
+        <h5 className="mx-4 text-dark-blue">Completa tus datos personales</h5>
+       </div>
+      <form className="mt-3 " onSubmit={onHandleSubmit} id="formOne" >
         <div className="container">
           <div className="row col-sm-12 mx-0 px-0">
             <div className="col-sm-3 mx-0 px-1">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label ">Nombres</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary "><span className="text-danger">**</span>Nombres</label>
                 <input type="text" className="form-control" name ="nombres" onChange={setDataForm}  required />
+                
               </div>
             </div>
             <div className="col-sm-3 mx-0 px-1">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Apellidos</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Apellidos</label>
                 <input type="text" className="form-control" id="validationDefault05" name ="apellidos"   onChange={setDataForm} required />
               </div>
             </div>
             <div className="col-sm-2 mx-0 px-1">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Edad</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Edad</label>
                 <input type=" number" className="form-control" name ="edad"   onChange={setDataForm} required />
               </div>
             </div>
             <div className="col-sm-2 mx-0 px-1">
-            <label for="validationDefault04"  className="form-label">Sexo</label>
+            <label for="validationDefault04"  className="form-label">Género</label>
             
-              <select class="form-select"  id="validationDefault04"  name="sexo"required onChange={sexElected} >
+              <select class="form-select"  id="validationDefault04"  name="sexo" onChange={sexElected} >
                 <option selected   value="">Elige una Opción</option>
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
@@ -77,7 +138,7 @@ function StepOne() {
             </div>
             <div className="col-sm-2 mx-0 px-1">
                 <div className="mb-3">
-                  <label for="exampleFormControlInput1" className="form-label">Estado Civil</label>
+                  <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Estado Civil</label>
                   <select class="form-select" aria-label="Default select example" name ="estadoCivil"   onChange={setDataForm} required>
                   <option selected value="">Elige una Opción</option>
                     {estadoCivil.map((str=>(
@@ -91,13 +152,13 @@ function StepOne() {
             
             <div className="col-sm-2 mx-0 px-1">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Lugar de Nacimiento</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Lugar de Nacimiento</label>
                 <input type=" number" className="form-control" name ="lugarNac"   onChange={setDataForm} required />
               </div>
             </div>
             <div className="col-sm-2 mx-0 px-1">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Fech./Nac.</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Fech./Nac.</label>
                 <div class="input-group flex-nowrap">
                   <span class="input-group-text" id="addon-wrapping">
                     <span class="material-symbols-outlined">calendar_month</span>
@@ -108,29 +169,29 @@ function StepOne() {
             </div>
             <div className="col-sm-1  mx-0 px-1">
               <div className="mb-3 mx-0 px-0">
-                <label for="exampleFormControlInput1" className="form-label">Tipo Doc</label>
-                <select class="form-select" aria-label="Default select example" name ="tipoDoc"   onChange={setDataForm} required>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Tipo Doc</label>
+                <select className="form-select " aria-label="Default select example" name ="tipoDoc"   onChange={setDataForm} required>
                     <option selected></option>
-                    <option value="D.N.I">D.N.I</option>
-                    <option value="C.E">C.E.</option>
+                    <option  value="D.N.I"><small >D.N.I.</small></option>
+                    <option  value="C.E"><small>C.E.</small></option>
                   </select>
               </div>
             </div>
             <div className="col-sm-2  mx-0 px-1">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Nro de Doc</label>
-                <input type=" number" className="form-control" name ="nroDoc"   onChange={setDataForm} required />
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Nro de Doc</label>
+                <input type=" number" className="form-control" id="documentNumbInput" name ="nroDoc"   onChange={setDataForm} required />
               </div>
             </div>
             <div className="col-sm-2  mx-0 px-1">
             <div className="mb-3">
                 <label for="exampleFormControlInput1" className="form-label">Pasaporte</label>
-                <input type="ntextumber" className="form-control" name ="pasaporte"   onChange={setDataForm} required />
+                <input type="ntextumber" className="form-control" name ="pasaporte"   onChange={setDataForm}  />
               </div>
           </div>
             <div className="col-sm-3  mx-0 px-1">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Nacionalidad</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Nacionalidad</label>
                 <input type=" number" className="form-control" name ="nacionalidad"   onChange={setDataForm} required />
               </div>
             </div>
@@ -139,12 +200,12 @@ function StepOne() {
           <div className="col-sm-3  mx-0 px-1">
               <div className="mb-3">
                 <label for="exampleFormControlInput1" className="form-label">Teléfono Fijo</label>
-                <input type=" number" className="form-control" name ="telFijo"   onChange={setDataForm} required  />
+                <input type=" number" className="form-control" name ="telFijo"   onChange={setDataForm}   />
               </div>
             </div>
             <div className="col-sm-3  mx-0 px-1">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Teléfono Móvil</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Teléfono Móvil</label>
                 <input type=" number" className="form-control" name ="telMovil"   onChange={setDataForm} required />
               </div>
             </div>
@@ -152,13 +213,13 @@ function StepOne() {
             <div className="col-sm-3  mx-0 px-1">
               <div className="mb-3">
                 <label for="exampleFormControlInput1" className="form-label">Teléfono de Contacto</label>
-                <input type="text" className="form-control" name ="telContacto"   onChange={setDataForm} required />
+                <input type="text" className="form-control" name ="telContacto"   onChange={setDataForm}  />
               </div>
             </div>
             <div className="col-sm-3  mx-0 px-1">
               <div className="mb-3">
                 <label for="exampleFormControlInput1" className="form-label">Referencia</label>
-                <input type="text" className="form-control" name ="referencia"   onChange={setDataForm} required />
+                <input type="text" className="form-control" name ="referencia"   onChange={setDataForm}  />
               </div>
           </div>
         
@@ -166,27 +227,27 @@ function StepOne() {
           <div className="row col-sm-12 mx-0 px-0">
           <div className="col-sm-4  mx-0 px-1">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Domicilio  </label><small className="mx-3">(Av. / Calle / Mz. - Nº ./ Lt. - Int. / Dpto.)</small>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Domicilio  </label><small className="mx-3">(Av. / Calle / Mz. - Nº ./ Lt. - Int. / Dpto.)</small>
                 <input type="text" className="form-control" name ="domicilio"   onChange={setDataForm} required />
               </div>
           </div>
           
           <div className="col-sm-3  mx-0 px-1">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Urbanización</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Urbanización</label>
                 <input type="text" className="form-control" name ="urbanizacion"   onChange={setDataForm} required />
               </div>
             </div>
           <div className="col-sm-2 mx-0 px-1">
               <div className="mb-4">
-                <label for="exampleFormControlInput1" className="form-label">Distrito</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Distrito</label>
                 <input type=" number" className="form-control" name ="distrito"   onChange={setDataForm} required />
               </div>
             </div>
             
             <div className="col-sm-3  mx-0 px-1">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Provincia</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Provincia</label>
                 <input type="text" className="form-control" name ="provincia"   onChange={setDataForm} required />
               </div>
           </div>
@@ -196,14 +257,14 @@ function StepOne() {
           <div className="row col-sm-12 mx-0 px-0">
           <div className="col-sm-3  mx-0 px-1">
             <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Departamento</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Departamento</label>
                 <input type="text" className="form-control" name ="departamento"   onChange={setDataForm} required />
               </div>
           </div>
             <div className="col-sm-3  mx-0 px-1">
               <div className="mb-6">
-                <label  className="form-label">Agrega tu Firma</label>
-                <div className="adjuntarFirma" >
+                <label  className="form-label text-primary"><span className="text-danger">**</span>Agrega tu Firma</label>
+                <div className="adjuntarFirma " >
                   <input type="file" name = "firmaIMG" onChange={loadIMG} required/>
                   </div>
               </div>
@@ -226,7 +287,8 @@ function StepOne() {
             </div>
             
             <div className="next position-absolute top-50 end-0 " >
-            <button type="submit" className={!!activaSiguiente?"btn nextBTN disabledbutton":"btn nextBTN "}  >Enviar Datos</button>
+            {/* <button type="submit" className={!!activaSiguiente?"btn nextBTN disabledbutton":"btn nextBTN "}  >Enviar Datos</button> */}
+            <button type="submit" className="btn nextBTN " >Enviar Datos</button>
             <NavLink to= {"/paso-2"} className={!!activaSiguiente?"btn nextBTN ":"btn nextBTN disabledbutton"} > Siguiente </NavLink>
 
               

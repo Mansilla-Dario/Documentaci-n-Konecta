@@ -112,7 +112,21 @@ function VistaPrevia() {
               <FooterPage/>           
             </page> 
             {/* ******************* */}
-            
+            {!!dataForm.certificadoRentas&&(
+               <page className="position-relative">
+                <HeaderPage/>
+                <Page14/> 
+                <FooterPage/>           
+             </page>
+            )}
+            {/* ******************* */}
+            {!!dataForm.certificadoRRHH&&(
+               <page className="position-relative">
+                <HeaderPage/>
+                <Page15/> 
+                <FooterPage/>           
+             </page>
+            )}
     </div>
   )}
  //</script >

@@ -12,31 +12,33 @@ function StepSix() {
         actual={6}
         total={6}
         />
-        <h4 className="mt-0 ">Paso 6</h4>
+        <div className="container">
+        <h5 className="mx-4 text-dark-blue">Sube los archivos requeridos para los anexos</h5>
+       </div>
       <form className="mt-2 " onSubmit={onHandleSubmit}>
         <div className="container">
           <div className="row col-sm-12 mx-0  my-3 px-0 position-relative">
-                <div className="col">
-                  <div className="mb-3">
-                    <label  className="form-label text-danger">*Adjunta una imagen con ambas caras de tu documento. </label>
-                    <div className="adjuntarFirma" >
-                      <input type="file" name = "dniIMG" onChange={loadIMG}  required/>
-                      </div>
+            <div className="col">
+              <div className="mb-3">
+                <label  className="form-label text-primary"><span className="text-danger">**</span>Adjunta una imagen la cara <strong>frontal</strong> del DNI. </label>
+                <div className="adjuntarFirma" >
+                  <input type="file" name = "dniFrontalIMG" onChange={loadIMG}  required/>
                   </div>
-                </div>
-                <div className="col">
-                  <div className="mb-3">
-                    <label  className="form-label text-danger">Certificado de estudios.</label>
-                    <div className="adjuntarFirma" >
-                      <input type="file" name = "certificadoEstudiosIMG" onChange={loadIMG}  required />
-                      </div>
+              </div>
+            </div>
+            <div className="col">
+              <div className="mb-3">
+                <label  className="form-label text-primary"><span className="text-danger">**</span>Adjunta una imagen la cara <strong>posterior</strong>  del DNI. </label>
+                <div className="adjuntarFirma" >
+                  <input type="file" name = "dniPosteriorIMG" onChange={loadIMG}  required/>
                   </div>
-                </div>
+              </div>
+            </div>
           </div>
           <div className="row col-sm-12 mx-0  my-3 px-0 position-relative">
           <div className="col">
                   <div className="mb-3">
-                    <label  className="form-label text-danger">Certificado de trabajo </label>
+                    <label  className="form-label text-primary"><span className="text-danger">**</span>Certificado de trabajo </label>
                     <div className="adjuntarFirma" >
                       <input type="file" name = "certificadoTrabajoIMG" onChange={loadIMG}  required/>
                       </div>
@@ -44,7 +46,7 @@ function StepSix() {
                 </div>
                 <div className="col">
                   <div className="mb-3">
-                    <label  className="form-label text-danger">Antecedentes policiales</label>
+                    <label  className="form-label text-primary"><span className="text-danger">**</span>Antecedentes policiales</label>
                     <div className="adjuntarFirma" >
                       <input type="file" name = "antecedentesPolicialesIMG" onChange={loadIMG}  required/>
                       </div>
@@ -54,20 +56,39 @@ function StepSix() {
           <div className="row col-sm-12 mx-0  my-3 px-0 position-relative">
           <div className="col">
                   <div className="mb-3">
-                    <label  className="form-label text-danger">Características de tu PC</label>
+                    <label  className="form-label ">Características de tu PC</label>
                     <div className="adjuntarFirma" >
-                      <input type="file" name = "caracteristicasPCIMG" onChange={loadIMG}  required/>
+                      <input type="file" name = "caracteristicasPCIMG" onChange={loadIMG}  />
                       </div>
                   </div>
                 </div>
                 <div className="col">
                   <div className="mb-3">
-                    <label  className="form-label text-danger">Velocidad del internet</label>
+                    <label  className="form-label ">Velocidad del internet</label>
                     <div className="adjuntarFirma" >
-                      <input type="file" name = "velocidadInternetIMG" onChange={loadIMG}  required/>
+                      <input type="file" name = "velocidadInternetIMG" onChange={loadIMG}  />
                       </div>
                   </div>
                 </div>
+          </div>
+          <div className="row col-sm-12 mx-0  my-3 px-0 position-relative">
+          <div className="col">
+            <div className="mb-3">
+              <label  className="form-label text-primary"><span className="text-danger">**</span>Certificado de estudios.</label>
+              <div className="adjuntarFirma" >
+                <input type="file" name = "certificadoEstudiosIMG" onChange={loadIMG}  required />
+                </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="mb-3">
+              <label  className="form-label text-primary"><span className="text-danger">**</span>Adjunta el <strong>PDF de la propuesta</strong> que recibiste </label>
+              <div className="adjuntarFirma" >
+                <input type="file" name = "propuestaPDF"   />
+                </div>
+            </div>
+          </div>
+                
           </div>
         </div>
         <footer className="container navigationFooterBar">

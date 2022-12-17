@@ -311,7 +311,7 @@ page {
 .adjuntarFirma{
   width:auto;
   height:38px;
-  padding: 5px;
+  padding: 3px;
   border: 2px dashed #DDDDDD;
   border-radius:5px;
   overflow:hidden;
@@ -412,19 +412,27 @@ input[type="date"],input[type="date"]:focus{
   right:60px;
 }
 .anexoIMG{
-  
-  position:absolute;
+ position:absolute;
   left:50%;
   top:10%;
   transform: translate(-50%,0%);
 }
 .anexoIMG img{
-  max-width: 700px;
+  max-width: 15cm;
   min-width: 500px;
   height:auto;
+  max-height:22cm;
 }
 .disabledbutton {
     pointer-events: none;
     opacity: 0.4;
+}
+.text-dark-blue{
+  color:var( --blue-dark);
+  font-weight: bold;
+}
+.documentType{
+  font-size:0.9em !important;
+  height:38px;
 }
 </style>

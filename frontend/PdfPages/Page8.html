@@ -2,8 +2,14 @@
 function Page8() {
   return (
     <div className="container">
-      <div className="anexoIMG">
-        <img src={dataForm.dniIMG} alt="" />
+      <div className="row">
+        <small className="mx-4 text-dark-blue mb-3">COLOCA LA FOTO DE AMBAS CARA DE TU {dataForm.tipoDoc}, RECUERDA QUE TIENE QUE SER NÍTIDA Y VISIBLE.</small>
+      </div>
+       <div className="row ">
+        <img className="figure-img img-fluid rounded shadow-3 mb-3"src={dataForm.dniFrontalIMG} alt="" />
+       </div>
+       <div className="row ">
+          <img className="figure-img img-fluid rounded shadow-3 mb-3" src={dataForm.dniPosteriorIMG} alt="" />
       </div>
     </div>
   )

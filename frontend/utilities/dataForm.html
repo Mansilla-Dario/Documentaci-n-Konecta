@@ -66,10 +66,17 @@ const LoadCertificadoRRHH=(codeImageArray)=>{
   }
   console.log("dataForm:", dataForm) 
 }
-const LoadDNIIMG=(codeImageArray)=>{
+const LoaDniFrontal=(codeImageArray)=>{
   dataForm={
     ...dataForm,
-    dniIMG: [codeImageArray]
+    dniFrontalIMG: [codeImageArray]
+  }
+  console.log("dataForm:", dataForm) 
+}
+const LoaDniPosterior=(codeImageArray)=>{
+  dataForm={
+    ...dataForm,
+    dniPosteriorIMG: [codeImageArray]
   }
   console.log("dataForm:", dataForm) 
 }

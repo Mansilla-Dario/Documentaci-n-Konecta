@@ -29,34 +29,34 @@ function StepFour() {
         <div className="container">
           <div className="row col-sm-12 mx-0  my-3 px-0 position-relative">
             <div className="col-sm-4 mx-0 w-25 px-3 ">
-              <div className="col mb-4 mx-0 ">Empleador anterior en el ejercicio</div>
+              <div className="col mb-4 mx-0 text-primary"><span className="text-danger">**</span>Empleador anterior en el ejercicio</div>
               <div class="checkBox shadow-sm  py-2 px-0  bg-light">
                 <div class="form-check form-check-inline  ">
                 <label class="form-check-label px-0 " for="inlineRadio1">Si  </label>
-                  <input class="form-check-input " type="radio"  name ="empleadorAnterior"  value="si" onChange={checkInput} /> 
+                  <input class="form-check-input " type="radio"  name ="empleadorAnterior"  value="si" onChange={checkInput} required/> 
                 </div>      
               </div>
               <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
                 <div class="form-check form-check-inline  ">
                 <label class="form-check-label  px-0" for="inlineRadio1">No</label>
-                  <input class="form-check-input " type="radio" name="empleadorAnterior" value="no" onChange={checkInput}  /> 
+                  <input class="form-check-input " type="radio" name="empleadorAnterior" value="no" onChange={checkInput}  required/> 
                 </div>      
               </div>
               
             </div>
             {/************* */}
             <div className="col-sm-4 mx-0 w-25 px-3 ">
-              <div className="col mb-4 mx-0 ">Domiciliado</div>
+              <div className="col mb-4 mx-0 text-primary"><span className="text-danger">**</span>Domiciliado</div>
               <div class="checkBox shadow-sm  py-2 px-0  bg-light">
                 <div class="form-check form-check-inline  ">
                 <label class="form-check-label px-0" for="inlineRadio1">Sí </label>
-                  <input class="form-check-input " type="radio"  name="domiciliado"  value="si" onChange={checkInput}/> 
+                  <input class="form-check-input " type="radio"  name="domiciliado"  value="si" onChange={checkInput} required/> 
                 </div>      
               </div>
               <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
                 <div class="form-check form-check-inline  ">
                 <label class="form-check-label  px-0"  for="inlineRadio1">No</label>
-                  <input class="form-check-input " name="domiciliado"  type="radio" value="no" onChange={checkInput}/> 
+                  <input class="form-check-input " name="domiciliado"  type="radio" value="no" onChange={checkInput} required/> 
                 </div>      
               </div>
               
@@ -123,7 +123,7 @@ function StepFour() {
           <div className="row col-sm-12 mx-0  my-3 px-0 position-relative">
             <div className="col-sm-4 mx-0 w-25 px-3 ">
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Fecha de último empleo</label>
+                <label for="exampleFormControlInput1" className="form-label text-primary "><span className="text-danger">**</span>Fecha de último empleo</label>
                 <div class="input-group flex-nowrap">
                   <span class="input-group-text" id="addon-wrapping">
                     <span class="material-symbols-outlined">calendar_month</span>
@@ -134,50 +134,50 @@ function StepFour() {
             </div>
             {/************* */}
             <div className="col-sm-4 mx-0 w-25 px-3 ">
-              <div className="col mb-4 mx-0 ">Informó otros ingresos de renta</div>
+              <div className="col mb-4 mx-0 text-primary"><span className="text-danger">**</span>Informó otros ingresos de renta</div>
               <div class="checkBox shadow-sm  py-2 px-0  bg-light">
                 <div class="form-check form-check-inline  ">
                 <label class="form-check-label px-0 " for="inlineRadio1">Sí </label>
-                  <input class="form-check-input " type="radio" name="otrosIngresos"   type="radio" value="si" onChange={checkInput} /> 
+                  <input class="form-check-input " type="radio" name="otrosIngresos"   type="radio" value="si" onChange={checkInput} required/> 
                 </div>      
               </div>
               <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
                 <div class="form-check form-check-inline  ">
                 <label class="form-check-label  px-0" for="inlineRadio1">No</label>
-                  <input class="form-check-input " name="otrosIngresos"   type="radio" value="no" onChange={checkInput}/> 
+                  <input class="form-check-input " name="otrosIngresos"   type="radio" value="no" onChange={checkInput} required/> 
                 </div>      
               </div>
               
             </div>
             {/************* */}
             <div className="col-sm-4 mx-0 w-25 px-3 ">
-              <div className="col mb-4 mx-0 ">Estas afiliado a Essalud Vida</div>
+              <div className="col mb-4 mx-0 text-primary"><span className="text-danger">**</span>Estas afiliado a Essalud Vida</div>
               <div class="checkBox shadow-sm  py-2 px-0  bg-light">
                 <div class="form-check form-check-inline  ">
                 <label class="form-check-label px-0 " for="inlineRadio1">Sí </label>
-                  <input class="form-check-input "  name="essalud"   type="radio" value="si" onChange={checkInput}/> 
+                  <input class="form-check-input "  name="essalud"   type="radio" value="si" onChange={checkInput} required/> 
                 </div>      
               </div>
               <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
                 <div class="form-check form-check-inline  ">
                 <label class="form-check-label  px-0" for="inlineRadio1">No</label>
-                  <input class="form-check-input " name="essalud"   type="radio" value="no" onChange={checkInput}/> 
+                  <input class="form-check-input " name="essalud"   type="radio" value="no" onChange={checkInput} required/> 
                 </div>      
               </div>
               
             </div>
             <div className="col-sm-4 mx-0 w-25 px-3 ">
-              <div className="col mb-4 mx-0 ">Prestó servicios simultáneos</div>
+              <div className="col mb-4 mx-0 text-primary"><span className="text-danger">**</span>Prestó servicios simultáneos</div>
               <div class="checkBox shadow-sm  py-2 px-0  bg-light">
                 <div class="form-check form-check-inline  ">
                 <label class="form-check-label px-0 " for="inlineRadio1">Sí </label>
-                  <input class="form-check-input "  name="serviciosSimultaneos"    type="radio" value="si" onChange={checkInput}/> 
+                  <input class="form-check-input "  name="serviciosSimultaneos"    type="radio" value="si" onChange={checkInput} required/> 
                 </div>      
               </div>
               <div class="checkBox shadow-sm  py-2 px-0 mx-1 bg-light">
                 <div class="form-check form-check-inline  ">
                 <label class="form-check-label  px-0" for="inlineRadio1">No</label>
-                  <input class="form-check-input " name="serviciosSimultaneos"    type="radio" value="no" onChange={checkInput}/> 
+                  <input class="form-check-input " name="serviciosSimultaneos"    type="radio" value="no" onChange={checkInput} required/> 
                 </div>      
               </div>
               
@@ -186,21 +186,21 @@ function StepFour() {
           
 
           <div className="row col-sm-12 mx-0  my-3 px-0 position-relative">
-          <div className="col-sm-4 mx-0 w-25 px-3 "><span>Modalidades de pago</span></div>
+          <div className="col-sm-4 mx-0 w-25 px-3 "><span className="text-danger">**</span><span className= "text-primary">Modalidades de pago</span></div>
           
             <div className="col-sm-4 mx-0 w-25 px-3 ">
                 <select class="form-select" aria-label="Default select example" name="eligeCTS"  onChange={setDataForm} required>
                     <option selected value="">Elige CTS</option>
                     <option value="Soles">Soles</option>
-                    <option value="Dolares">Dolares</option>
+                    {/* <option value="Dolares">Dolares</option> */}
               </select>
             </div>
             {/************* */}
             <div className="col-sm-4 mx-0 w-25 px-3 ">
                 <select class="form-select" aria-label="Default select example" name="pagoHaberes"  onChange={setDataForm} required>
                     <option selected value="">Elige Pago de haberes</option>
-                    <option value="Soles">Soles</option>
-                    <option value="Dolares">Dolares</option>
+                    <option value="Quincenal">Quincenal</option>
+                    <option value="Mensual">Mensual</option>
               </select>
               
             </div>

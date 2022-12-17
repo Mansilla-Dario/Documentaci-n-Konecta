@@ -6,6 +6,7 @@ function StepFive() {
   const [deseaContinuar, setDeseaContinuar]= useState(false);
   const [afiliarINTEGRA, setAfiliarINTEGRA]= useState(false);
   const [afiliarSNP, setAfiliarSNP]= useState(false);
+  const [nameInput, setNameInput]= useState(false);
 
   const onHandleSubmit=(e)=>{
     e.preventDefault();
@@ -14,7 +15,8 @@ function StepFive() {
   const [AFPState, setAFPState]=useState(false);
 
   const firstAction=(e)=>{
-    setAfpAction(true)
+    setAfpAction(true);
+    setActivaSiguiente(false);
     if(e.target.name==="siAFP"){
       setAfpAnterior(true);
       const evt={target:{name:"AfpPrevia",value:true}}
@@ -27,6 +29,13 @@ function StepFive() {
     }
   }
   const secondAction=(e)=>{
+    if(e.target.name ==="estabaAfiliada"){
+      if(e.target.value==="AFP"){
+        setNameInput(true)
+      }else{
+        setNameInput(false)
+      }
+    }
     
     if(!afpAction){
       if(e.target.value==="afiliarIntegra" ||e.target.value==="afiliarSNP"){
@@ -69,10 +78,10 @@ function StepFive() {
         const evt2={target:{name:"afiliarIntegra",value:false}}
         setDataForm(evt2)
       }
-      if(e.target.name==="codigoUnico"||e.target.name==="estabaAfiliada"){
-        setDataForm(e)
+
+      if(e.target.name==="codigoUnico"||e.target.name==="estabaAfiliada" || e.target.name==="nombreAFP"){
+        setDataForm(e);
       }
-      
     }
   }
   const onHandleAfiliatedState=(e)=>{
@@ -103,25 +112,32 @@ function StepFive() {
         <form className="mt-5 d-flex justify-content-center" onSubmit={onHandleSubmit}>
           <div className="">
             <div className="form-check">
-                  <input className="form-check-input" type="checkbox" id="flexCheckDefault" name="siAFP" onChange={firstAction} checked={afpAnterior}/>
+                  <input className="form-check-input" type="checkbox" id="flexCheckDefault" name="siAFP" onChange={firstAction} checked={afpAnterior} />
                   <label className="form-check-label" for="flexCheckDefault">
-                    Sí, estoy afiliado a la AFP : </label>
+                    Sí, estoy afiliado a una...  </label>
                     {!!afpAnterior&&(
-                      <div>
-                        <select className="form-select  mt-1" aria-label="Default select example" name="estabaAfiliada" id="1" onChange={secondAction} >
+                      <div> 
+                        <select className="form-select  mt-1" aria-label="Default select example" name="estabaAfiliada" id="1" onChange={secondAction} required>
                         <option selected value="">Elige una Opción</option>
-                        <option value="INTEGRA">INTEGRA</option>
+                        <option value="AFP">AFP</option>
                         <option value="SNP">SNP</option>
                         </select>
+                        {!!nameInput&&(
+                          <div>
+                            <label className="form-label mt-1">De nombre:</label>
+                            <input className="form-control" name="nombreAFP" type="text" onChange={secondAction} required/></div>
+                        )}
+
+                        
                         <label className="form-label mt-1">De código único:</label>
-                        <input className="form-control" name="codigoUnico" type="text" onChange={secondAction}/>
+                        <input className="form-control" name="codigoUnico" type="text" onChange={secondAction} />
                       </div>
-                    )}  secondAction
+                    )}  
                   
             </div> 
             {!!afpAnterior&&(
               <div className="form-check mb-5 ">
-              <input className="form-check-input mx-3  mt-1" type="checkbox" name="deseaContinuar" id="flexCheckDefault" onChange={secondAction}/>
+              <input className="form-check-input mx-3  mt-1" type="checkbox" name="deseaContinuar" id="flexCheckDefault" onChange={secondAction} />
               <label className="form-check-label" for="flexCheckDefault">
                 Deseo continuar
               </label>
@@ -129,14 +145,14 @@ function StepFive() {
             )}
             
             <div className="form-check">
-              <input className="form-check-input" type="checkbox"  name="noAFP" onChange={firstAction} checked={!afpAnterior}/>
+              <input className="form-check-input" type="checkbox"  name="noAFP" onChange={firstAction} checked={!afpAnterior} />
               <label className="form-check-label" for="flexCheckDefault">
                 No estoy afiliado a ninguna AFP
               </label>
             </div>
             {!afpAnterior&&(
               <div className="form-check mb-1">
-              <input className="form-check-input mx-3" type="radio"   name="deseoAfiliarme" value="afiliarIntegra" onChange={secondAction}/>
+              <input className="form-check-input mx-3" type="radio"   name="deseoAfiliarme" value="afiliarIntegra" onChange={secondAction} required/>
               <label className="form-check-label " for="flexCheckDefault">
                 Deseo afiliarme a la AFP INTEGRA
               </label>
@@ -144,9 +160,9 @@ function StepFive() {
             )}
             {!afpAnterior&&(
               <div className="form-check mb-5">
-              <input className="form-check-input mx-3" type="radio"  name="deseoAfiliarme" value="afiliarSNP" onChange={secondAction}/>
+              <input className="form-check-input mx-3" type="radio"  name="deseoAfiliarme" value="afiliarSNP" onChange={secondAction} required/>
               <label className="form-check-label " for="flexCheckDefault">
-                Deseo afiliarme a la AFP SNP
+                Deseo afiliarme a la SNP
               </label>
             </div>
             )}
@@ -170,7 +186,7 @@ function StepFive() {
                   <span> Atrás</span></NavLink>
               </div>
               <div className="next position-absolute top-50 end-0 " >
-              <button type="submit" className={!!activaSiguiente?"btn nextBTN disabledbutton":"btn nextBTN "}  >Enviar Datos</button>
+              <button type="submit" className="btn nextBTN " >Enviar Datos</button>
               <NavLink to= {"/paso-6"} className={!!activaSiguiente?"btn nextBTN ":"btn nextBTN disabledbutton"} > Siguiente </NavLink>
               </div>
             </div>
