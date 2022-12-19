@@ -22,7 +22,8 @@ let  nivelDeEstudio={
   educformaleducformal:false,
 }
 let dataForm={
- familiares:[{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""}]
+ familiares:[{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""},{nombApellido:"",parentesco:"",edad:"",sexo:"",tipoDoc:"",nroDoc:""}],
+ codigoUnico:""
 };
 const setDataForm=(e)=>{
   dataForm={
@@ -49,6 +50,13 @@ const LoadFirma=(codeImageArray)=>{
   dataForm={
     ...dataForm,
     firmaIMG: [codeImageArray]
+  }
+  console.log("dataForm:", dataForm) 
+}
+const LoadPDF=(codeImageArray)=>{
+  dataForm={
+    ...dataForm,
+    propuestaPDF: [codeImageArray]
   }
   console.log("dataForm:", dataForm) 
 }
@@ -116,4 +124,7 @@ const LoadVelocidadInternetIMG=(codeImageArray)=>{
   }
   console.log("dataForm:", dataForm) 
 }
+
+
+
 //</script>

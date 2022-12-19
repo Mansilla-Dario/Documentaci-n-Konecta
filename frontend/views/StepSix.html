@@ -1,5 +1,7 @@
 /<script type="text/jsx">
 function StepSix() {
+  
+
   const [activaSiguiente, setActivaSiguiente]= useState(false);
   const onHandleSubmit=(e)=>{
     e.preventDefault();
@@ -82,9 +84,9 @@ function StepSix() {
           </div>
           <div className="col">
             <div className="mb-3">
-              <label  className="form-label text-primary"><span className="text-danger">**</span>Adjunta el <strong>PDF de la propuesta</strong> que recibiste </label>
+              <label  className="form-label text-primary"><span className="text-danger">**</span>Adjunta la IMAGEN <strong>de la propuesta</strong> que recibiste </label>
               <div className="adjuntarFirma" >
-                <input type="file" name = "propuestaPDF"   />
+                <input type="file" name = "propuestaPDF"  onChange={loadIMG} />
                 </div>
             </div>
           </div>

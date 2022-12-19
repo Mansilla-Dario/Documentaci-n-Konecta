@@ -100,22 +100,33 @@ function VistaPrevia() {
               <FooterPage/>            
             </page> 
             {/* ******************* */}
-            <page className="position-relative">
-              <HeaderPage/>
-              <Page12/>
-              <FooterPage/>            
-            </page> 
+            {!!dataForm.caracteristicasPC&&(
+               <page className="position-relative">
+                <HeaderPage/>
+                <Page12/> 
+                <FooterPage/>           
+             </page>
+            )}
+            
             {/* ******************* */}
+            {!!dataForm.velocidadInternet&&(
+               <page className="position-relative">
+                <HeaderPage/>
+                <Page13/> 
+                <FooterPage/>           
+             </page>
+            )}
+            
             <page className="position-relative">
-              <HeaderPage/>
-              <Page13/> 
-              <FooterPage/>           
+             
+              <Page14/> 
+                     
             </page> 
             {/* ******************* */}
             {!!dataForm.certificadoRentas&&(
                <page className="position-relative">
                 <HeaderPage/>
-                <Page14/> 
+                <Page15/> 
                 <FooterPage/>           
              </page>
             )}
@@ -123,7 +134,7 @@ function VistaPrevia() {
             {!!dataForm.certificadoRRHH&&(
                <page className="position-relative">
                 <HeaderPage/>
-                <Page15/> 
+                <Page16/> 
                 <FooterPage/>           
              </page>
             )}

@@ -2,11 +2,10 @@
 function Page14() {
   return (
     <div className="container">
-      <div className="row">
-        <small className="mx-4 text-dark-blue">ADJUNTA TU CERTIFICADO DE RETENCIONES DE RENTAS</small>
-       </div>
-      <div className=" row anexoIMG">
-        <img src={dataForm.certificadoRentas} alt="" />
+      <div className=" row anexoPDFIMG">
+     {dataForm.propuestaPDF && <img src={dataForm.propuestaPDF[0]}  />}
+   
+      
       </div>
     </div>
   )

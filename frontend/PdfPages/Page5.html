@@ -35,11 +35,11 @@ function Page5({day,month,year}) {
                 <input className="form-check-input" type="checkbox" checked={dataForm.AfpPrevia[0]}/>
                 
                 {!!dataForm.AfpPrevia[0]?(<label className="form-check-label" for="flexCheckDefault">
-                  Sí, estoy afiliado a la AFP .....{dataForm.nombreAFP[0]}............ de código único:....{dataForm.codigoUnico[0]}........</label>):(<label className="form-check-label" for="flexCheckDefault">Sí, estoy afiliado a la AFP ................. de código único:............ </label>)}
+                  Sí, estoy afiliado a la {dataForm.estabaAfiliada[0]} .....{dataForm.nombreAFP[0]}............ de código único:....{!!dataForm.codigoUnico[0]&&dataForm.codigoUnico[0]}........</label>):(<label className="form-check-label" for="flexCheckDefault">Sí, estoy afiliado a la AFP ................. de código único:............ </label>)}
                   
                 </div> 
                 <div className="form-check mb-5 ">
-                <input className="form-check-input mx-3" type="checkbox"  id="flexCheckDefault" checked={dataForm.deseaContinuar}/>
+                <input className="form-check-input mx-3" type="checkbox"  id="flexCheckDefault" checked={!!dataForm.deseaContinuar&&dataForm.deseaContinuar}/>
                 
                 <label className="form-check-label" for="flexCheckDefault">
                   Deseo continuar
