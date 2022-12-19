@@ -1,11 +1,20 @@
 //<script type="text/jsx">
 function Page14() {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className=" row anexoPDFIMG">
      {dataForm.propuestaPDF && <img src={dataForm.propuestaPDF[0]}  />}
-   
-      
+      </div>
+      <div className="datosalPie">
+        <div className="nombreyapellido">
+          <strong>{dataForm.apellidos}, {dataForm.nombres}</strong><br/><br/>
+          <strong>{dataForm.tipoDoc} N°:__{dataForm.nroDoc}</strong>
+        </div>
+        
+        <div className="firma">
+          <img src={dataForm.firmaIMG} className="firmaIMG" />
+        </div>
+
       </div>
     </div>
   )
