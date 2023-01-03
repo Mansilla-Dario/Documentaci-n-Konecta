@@ -1,75 +1,97 @@
 //<script type="text/jsx">
-let codeImageArray=[];
 
+  let codeImageArray=[];
 
-const loadIMG=(evt)=>{ 
-  
+  // function loadIMG(evt) {
+  //   const allowedExtensions = ['jpeg', 'png', 'gif'];
+
+  //   const file = evt.target.files[0];
+  //   const fileName = file.name; // "mi_imagen.jpg"
+  //   const fileNameParts = fileName.split('.'); // ["mi_imagen", "jpg"]
+  //   const extension = fileNameParts.pop(); // "jpg"F
+
+  //   if (!file || !allowedExtensions.includes(extension)) {
+      
+  //     swal({
+  //       title: `La extensión *${extension.toUpperCase()} es INVALIDA`,
+  //       text: "Por favor, selecciona una imagen válida",
+  //       icon: "warning",
+  //       dangerMode: true,
+  //     })
+  //     return;
+  //   }   
+  // loadIMG2(evt, file);
+    
+  // }
+
+  const loadIMG=(evt)=>{
+  // Obtenemos la imagen del campo "file".
   var files = evt.target.files; // FileList object
-             
-// Obtenemos la imagen del campo "file".
-for (var i = 0, f; f = files[i]; i++) {
-  //Solo admitimos imágenes.
-  if (!f.type.match('image.*')) {
-      continue;
+
+  for (var i = 0, f; f = files[i]; i++) {
+    //Solo admitimos imágenes.
+    
+
+    var reader = new FileReader();
+
+    reader.onload = (function(theFile) {
+        return function(e) {
+          // Insertamos la imagen
+          const codeImg= e.target.result;
+          codeImageArray.push(codeImg);
+
+         //switch para saber a donde mandar la img
+         //para esto evaluaremos el evt.target.name
+         console.log("codeImg: ")
+         console.log("codeImg: ",codeImg)
+         switch(evt.target.name){
+          case "firmaIMG":
+            LoadFirma(codeImg);
+            break;
+          case "propuestaPDF":
+            LoadPDF(codeImg);
+            break;
+          case "certificadoRentas":
+            LoadCertificadoRentas(codeImg);
+            break;
+          case "certificadoRRHH":
+            LoadCertificadoRRHH(codeImg);
+            break;
+          case "dniFrontalIMG":
+            LoaDniFrontal(codeImg);
+            break;
+          case "dniPosteriorIMG":
+            LoaDniPosterior(codeImg);
+            break;
+          case "certificadoEstudiosIMG":
+            LoadCertificadoEstudios(codeImg);
+            break;
+          case "certificadoTrabajoIMG":
+            LoadCertificadoTrabajo(codeImg);
+            break;
+          case "antecedentesPolicialesIMG":
+            LoadAntecedentesPoliciales(codeImg);
+            break;
+          case "caracteristicasPCIMG":
+            LoadCaracteristicasPCIMG(codeImg);
+            break;
+          case "velocidadInternetIMG":
+            LoadVelocidadInternetIMG(codeImg);
+            break;
+          default:
+            break;
+
+
+         }
+        };
+
+    })(f);
+
+    reader.readAsDataURL(f);
+  }
   }
 
-  var reader = new FileReader();
+  
 
-  reader.onload = (function(theFile) {
-      return function(e) {
-        // Insertamos la imagen
-        const codeImg= e.target.result;
-        codeImageArray.push(codeImg);
-       
-       //switch para saber a donde mandar la img
-       //para esto evaluaremos el evt.target.name
-       switch(evt.target.name){
-        case "firmaIMG":
-          LoadFirma(codeImg);
-          break;
-        case "propuestaPDF":
-          LoadPDF(codeImg);
-          break;
-        case "certificadoRentas":
-          LoadCertificadoRentas(codeImg);
-          break;
-        case "certificadoRRHH":
-          LoadCertificadoRRHH(codeImg);
-          break;
-        case "dniFrontalIMG":
-          LoaDniFrontal(codeImg);
-          break;
-        case "dniPosteriorIMG":
-          LoaDniPosterior(codeImg);
-          break;
-        case "certificadoEstudiosIMG":
-          LoadCertificadoEstudios(codeImg);
-          break;
-        case "certificadoTrabajoIMG":
-          LoadCertificadoTrabajo(codeImg);
-          break;
-        case "antecedentesPolicialesIMG":
-          LoadAntecedentesPoliciales(codeImg);
-          break;
-        case "caracteristicasPCIMG":
-          LoadCaracteristicasPCIMG(codeImg);
-          break;
-        case "velocidadInternetIMG":
-          LoadVelocidadInternetIMG(codeImg);
-          break;
-        default:
-          break;
-        
-        
-       }
-      };
-      
-  })(f);
-
-  reader.readAsDataURL(f);
-}
-}
-
-//<input className="form-control" type="file" id="formFile" onChange={loadIMG}/>
-
-//</script >
+  //
+</script>

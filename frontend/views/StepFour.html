@@ -1,9 +1,32 @@
 //<script type="text/jsx">
 function StepFour() {
   const [activaSiguiente, setActivaSiguiente]= useState(false);
+  const [modalidadPago, setModalidadPago]= useState("");
   const onHandleSubmit=(e)=>{
     e.preventDefault();
     setActivaSiguiente(true);
+  }
+  const onHandleImg=(evt)=>{
+    const allowedExtensions = ['jpeg', 'png', 'gif'];
+
+    const file = evt.target.files[0];
+    const fileName = file.name; // "mi_imagen.jpg"
+    const fileNameParts = fileName.split('.'); // ["mi_imagen", "jpg"]
+    const extension = fileNameParts.pop(); // "jpg"F
+
+    if (!file || !allowedExtensions.includes(extension)) {
+      
+      swal({
+        title: `La extensión *${extension.toUpperCase()} es INVALIDA`,
+        text: "Por favor, selecciona una imagen válida",
+        icon: "warning",
+        dangerMode: true,
+      })
+      evt.target.value = ''; // borra el archivo cargado en el elemento
+      setActivaSiguiente(false);
+      return;
+    }   
+  loadIMG(evt, file);
   }
   const [empleadorAnterior,setEmpleadorAnterior]=useState(false)
   const [domiciliadoState,setDomiciliadoState]=useState(false)
@@ -17,6 +40,30 @@ function StepFour() {
       e.target.value==="no"?setDomiciliadoState(true):setDomiciliadoState(false)
     }
   }
+  const onHandleModalidadPago=(e)=>{
+    setModalidadPago(e.target.value);
+    setDataForm(e)
+  }
+
+  const history = useHistory();
+  useEffect(()=>{
+    if (activaSiguiente){
+      swal({
+        title: "Buen Trabajo!",
+        text: "Completaste todos los campos requeridos. ¡Continúa con el paso 5!",
+        icon: "success",
+        button: {
+          text: "Siguiente Paso!",
+          value: true,
+          visible: true,
+          className: "nextBTN",
+        },
+      }).then(() => {
+        history.push('/paso-5');
+      })
+    }
+
+  },[activaSiguiente])
   return(
     <div className="container align-center min-vh-100">
       <div className="row containeFormPage ">
@@ -87,7 +134,7 @@ function StepFour() {
               <div className="mb-3">
                   <label  className="form-label text-danger"> * Adjunta tu certificado de retenciones de rentas</label>
                   <div className="adjuntarFirma" >
-                    <input type="file" name = "certificadoRentas" onChange={loadIMG} />
+                    <input type="file" name = "certificadoRentas" onChange={onHandleImg} />
                     </div>
                 </div>
             </div>
@@ -107,7 +154,7 @@ function StepFour() {
               <div className="mb-3">
               <label  className="form-label text-danger">* Adjunta tu certificado de recursos humanos según sea el caso         </label>
               <div className="adjuntarFirma" >
-                <input type="file" name = "certificadoRRHH" onChange={loadIMG} />
+                <input type="file" name = "certificadoRRHH" onChange={onHandleImg} />
                 </div>
             </div>
             ):(<div className="mb-3">
@@ -186,9 +233,9 @@ function StepFour() {
           
 
           <div className="row col-sm-12 mx-0  my-3 px-0 position-relative">
-          <div className="col-sm-4 mx-0 w-25 px-3 "><span className="text-danger">**</span><span className= "text-primary">Modalidades de pago</span></div>
+            <div className="col-sm-2 mx-0  px-3 "><span className="text-danger">**</span><span className= "text-primary">Modalidades de pago</span></div>
           
-            <div className="col-sm-4 mx-0 w-25 px-3 ">
+            <div className="col-sm-3 mx-0  px-3 ">
                 <select class="form-select" aria-label="Default select example" name="eligeCTS"  onChange={setDataForm} required>
                     <option selected value="">Elige CTS</option>
                     <option value="Soles">Soles</option>
@@ -196,19 +243,27 @@ function StepFour() {
               </select>
             </div>
             {/************* */}
-            <div className="col-sm-4 mx-0 w-25 px-3 ">
-                <select class="form-select" aria-label="Default select example" name="pagoHaberes"  onChange={setDataForm} required>
-                    <option selected value="">Elige Pago de haberes</option>
-                    <option value="Quincenal">Quincenal</option>
-                    <option value="Mensual">Mensual</option>
+            <div className="col-sm-3 mx-0 px-3 ">
+                <select class="form-select" aria-label="Default select example" name="pagoHaberes"  onChange={onHandleModalidadPago} required>
+                    <option selected value="">Selecciona tu Razón Social</option>
+                    <option value="QUINCENAL">AGENCIA B12 ONLINE PERU SAC</option>
+                    <option value="MENSUAL">ALLUS SPAIN S.L SUCURSAL PERU</option>
+                    <option value="QUINCENAL">AST PERU SAC</option>
+                    <option value="QUINCENAL">CASTILIAN ENTERPRISE UNION S SUCURSAL PERU</option>
+                    <option value="MENSUAL">COMDATA GROUP PERU S.A.C.</option>
+                    <option value="QUINCENAL">KONECTA BTO S.L. SUCURSAL EN PERU</option>
+                    <option value="MENSUAL">STRATTON PERU</option>
+                    <option value="QUINCENAL">TELEMARK SPAIN SL SUCURSAL PERU SAC</option>
               </select>
+             
               
             </div>
+            <div className="col-sm-3 mx-0 ">
+                  <span className="text-primary">Modalidad de pago:</span> <span className="text-danger">{modalidadPago}</span>
+              </div>
             {/************* */}
             
-            <div className="col-sm-2 position-absolute end-0 px-0">
-              
-            </div>
+            
           </div>
           
         </div>
@@ -230,7 +285,7 @@ function StepFour() {
             </div>
             <div className="next position-absolute top-50 end-0 " >
             <button type="submit" className={!!activaSiguiente?"btn nextBTN disabledbutton":"btn nextBTN "}  >Enviar Datos</button>
-            <NavLink to= {"/paso-5"} className={!!activaSiguiente?"btn nextBTN ":"btn nextBTN disabledbutton"} > Siguiente </NavLink>
+            
 
               
             

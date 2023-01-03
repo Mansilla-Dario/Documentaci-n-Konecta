@@ -7,6 +7,47 @@ function StepSix() {
     e.preventDefault();
     setActivaSiguiente(true);
   }
+  const onHandleImg=(evt)=>{
+    const allowedExtensions = ['jpeg','jpg','webp', 'bmp','png', 'gif'];
+
+    const file = evt.target.files[0];
+    const fileName = file.name; // "mi_imagen.jpg"
+    const fileNameParts = fileName.split('.'); // ["mi_imagen", "jpg"]
+    const extension = fileNameParts.pop(); // "jpg"F
+
+    if (!file || !allowedExtensions.includes(extension)) {
+      
+      swal({
+        title: `La extensión *${extension.toUpperCase()} es INVALIDA`,
+        text: "Por favor, selecciona una imagen válida",
+        icon: "warning",
+        dangerMode: true,
+      })
+      evt.target.value = ''; // borra el archivo cargado en el elemento
+      setActivaSiguiente(false);
+      return;
+    }   
+  loadIMG(evt, file);
+  }
+  const history = useHistory();
+  useEffect(()=>{
+    if (activaSiguiente){
+      swal({
+        title: "Buen Trabajo!",
+        text: "Completaste todos los campos requeridos. ¡Visualiza la VISTA PREVIA!",
+        icon: "success",
+        button: {
+          text: "Siguiente Paso!",
+          value: true,
+          visible: true,
+          className: "nextBTN",
+        },
+      }).then(() => {
+        history.push('/vista-previa');
+      })
+    }
+
+  },[activaSiguiente])
   return(
     <div className="container align-center min-vh-100">
       <div className="row containeFormPage ">
@@ -24,7 +65,7 @@ function StepSix() {
               <div className="mb-3">
                 <label  className="form-label text-primary"><span className="text-danger">**</span>Adjunta una imagen la cara <strong>frontal</strong> del DNI. </label>
                 <div className="adjuntarFirma" >
-                  <input type="file" name = "dniFrontalIMG" onChange={loadIMG}  required/>
+                  <input type="file" name = "dniFrontalIMG" onChange={ onHandleImg}  required/>
                   </div>
               </div>
             </div>
@@ -32,7 +73,7 @@ function StepSix() {
               <div className="mb-3">
                 <label  className="form-label text-primary"><span className="text-danger">**</span>Adjunta una imagen la cara <strong>posterior</strong>  del DNI. </label>
                 <div className="adjuntarFirma" >
-                  <input type="file" name = "dniPosteriorIMG" onChange={loadIMG}  required/>
+                  <input type="file" name = "dniPosteriorIMG" onChange={onHandleImg}  required/>
                   </div>
               </div>
             </div>
@@ -42,7 +83,7 @@ function StepSix() {
                   <div className="mb-3">
                     <label  className="form-label text-primary"><span className="text-danger">**</span>Certificado de trabajo </label>
                     <div className="adjuntarFirma" >
-                      <input type="file" name = "certificadoTrabajoIMG" onChange={loadIMG}  required/>
+                      <input type="file" name = "certificadoTrabajoIMG" onChange={onHandleImg}  required/>
                       </div>
                   </div>
                 </div>
@@ -50,7 +91,7 @@ function StepSix() {
                   <div className="mb-3">
                     <label  className="form-label text-primary"><span className="text-danger">**</span>Antecedentes policiales</label>
                     <div className="adjuntarFirma" >
-                      <input type="file" name = "antecedentesPolicialesIMG" onChange={loadIMG}  required/>
+                      <input type="file" name = "antecedentesPolicialesIMG" onChange={onHandleImg}  required/>
                       </div>
                   </div>
                 </div>
@@ -60,7 +101,7 @@ function StepSix() {
                   <div className="mb-3">
                     <label  className="form-label ">Características de tu PC</label>
                     <div className="adjuntarFirma" >
-                      <input type="file" name = "caracteristicasPCIMG" onChange={loadIMG}  />
+                      <input type="file" name = "caracteristicasPCIMG" onChange={onHandleImg}  />
                       </div>
                   </div>
                 </div>
@@ -68,7 +109,7 @@ function StepSix() {
                   <div className="mb-3">
                     <label  className="form-label ">Velocidad del internet</label>
                     <div className="adjuntarFirma" >
-                      <input type="file" name = "velocidadInternetIMG" onChange={loadIMG}  />
+                      <input type="file" name = "velocidadInternetIMG" onChange={onHandleImg}  />
                       </div>
                   </div>
                 </div>
@@ -78,7 +119,7 @@ function StepSix() {
             <div className="mb-3">
               <label  className="form-label text-primary"><span className="text-danger">**</span>Certificado de estudios.</label>
               <div className="adjuntarFirma" >
-                <input type="file" name = "certificadoEstudiosIMG" onChange={loadIMG}  required />
+                <input type="file" name = "certificadoEstudiosIMG" onChange={onHandleImg}  required />
                 </div>
             </div>
           </div>
@@ -86,7 +127,7 @@ function StepSix() {
             <div className="mb-3">
               <label  className="form-label text-primary"><span className="text-danger">**</span>Adjunta la IMAGEN <strong>de la propuesta</strong> que recibiste </label>
               <div className="adjuntarFirma" >
-                <input type="file" name = "propuestaPDF"  onChange={loadIMG} />
+                <input type="file" name = "propuestaPDF"  onChange={onHandleImg} />
                 </div>
             </div>
           </div>
@@ -109,7 +150,7 @@ function StepSix() {
             </div>
               <div className="next position-absolute top-50 end-0 " >
               <button type="submit" className={!!activaSiguiente?"btn nextBTN disabledbutton":"btn nextBTN "}  >Enviar Datos</button>
-              <NavLink to= {"/vista-previa"} className={!!activaSiguiente?"btn nextBTN ":"btn nextBTN disabledbutton"} > Siguiente </NavLink>
+              
               </div>
             </div>
           </footer> 

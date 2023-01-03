@@ -2,17 +2,37 @@
 
 function StepTwo() {
   const [activaSiguiente, setActivaSiguiente]= useState(false);
+  const [elegido, setElegido]= useState(false);
   const onHandleSubmit=(e)=>{
     e.preventDefault();
-    
+    if(elegido) setActivaSiguiente(true)
   }
   const nivelEducativo=(e)=>{
    
     let opc=e.target.value+e.target.id
-    setActivaSiguiente(true)
+    setElegido(true)
     setNivelEstudio(opc);
     
   }
+  const history = useHistory();
+  useEffect(()=>{
+    if (activaSiguiente){
+      swal({
+        title: "Buen Trabajo!",
+        text: "Completaste todos los campos requeridos. ¡Continúa con el paso 3!",
+        icon: "success",
+        button: {
+          text: "Siguiente Paso!",
+          value: true,
+          visible: true,
+          className: "nextBTN",
+        },
+      }).then(() => {
+        history.push('/paso-3');
+      })
+    }
+
+  },[activaSiguiente])
   return(
     <div className="container align-center min-vh-100">
       <div className="row containeFormPage">
@@ -205,7 +225,6 @@ function StepTwo() {
             </div>
             <div className="next position-absolute top-50 end-0 " >
             <button type="submit" className={!!activaSiguiente?"btn nextBTN disabledbutton":"btn nextBTN "}  >Enviar Datos</button>
-            <NavLink to= {"/paso-3"} className={!!activaSiguiente?"btn nextBTN ":"btn nextBTN disabledbutton"} > Siguiente </NavLink>
 
               
             

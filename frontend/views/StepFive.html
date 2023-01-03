@@ -101,6 +101,25 @@ function StepFive() {
    
   }
   useEffect(()=>{},[AFPState])
+  const history = useHistory();
+  useEffect(()=>{
+    if (activaSiguiente){
+      swal({
+        title: "Buen Trabajo!",
+        text: "Completaste todos los campos requeridos. ¡Continúa con el paso 6!",
+        icon: "success",
+        button: {
+          text: "Siguiente Paso!",
+          value: true,
+          visible: true,
+          className: "nextBTN",
+        },
+      }).then(() => {
+        history.push('/paso-6');
+      })
+    }
+
+  },[activaSiguiente])
   return(
     <div className="container align-center min-vh-80">
       <div className=" row containeFormPage">
@@ -190,7 +209,7 @@ function StepFive() {
             </div>
               <div className="next position-absolute top-50 end-0 " >
               <button type="submit" className="btn nextBTN " >Enviar Datos</button>
-              <NavLink to= {"/paso-6"} className={!!activaSiguiente?"btn nextBTN ":"btn nextBTN disabledbutton"} > Siguiente </NavLink>
+              
               </div>
             </div>
           </footer> 

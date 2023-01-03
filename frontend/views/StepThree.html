@@ -20,6 +20,25 @@ function StepThree() {
     //fila #= {nombApellido:"",parentesco:"",edad:0,sexo:"",tipoDoc:"",nroDoc:0}
     setearFila(e.target.id,e.target.name,e.target.value);
   }
+  const history = useHistory();
+  useEffect(()=>{
+    if (activaSiguiente){
+      swal({
+        title: "Buen Trabajo!",
+        text: "Completaste todos los campos requeridos. ¡Continúa con el paso 4!",
+        icon: "success",
+        button: {
+          text: "Siguiente Paso!",
+          value: true,
+          visible: true,
+          className: "nextBTN",
+        },
+      }).then(() => {
+        history.push('/paso-4');
+      })
+    }
+    
+  },[activaSiguiente])
   return(
     <div className="container align-center min-vh-100">
       <div className="row containeFormPage ">
@@ -268,7 +287,7 @@ function StepThree() {
             </div>
               <div className="next position-absolute top-50 end-0 " >
               <button type="submit" className={!!activaSiguiente?"btn nextBTN disabledbutton":"btn nextBTN "}  >Enviar Datos</button>
-              <NavLink to= {"/paso-4"} className={!!activaSiguiente?"btn nextBTN ":"btn nextBTN disabledbutton"} > Siguiente </NavLink>
+              
 
                 
               

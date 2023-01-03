@@ -7,10 +7,34 @@ function StepOne() {
   const [sexTermination, setSexTermination]= useState("@");
   const [activaSiguiente, setActivaSiguiente]= useState(false);
   const estadoCivil=["Solter","Casad","Viud","Divorciad"];
+  const history = useHistory();
   const expresiones = {
     dni:/^\d{8}$/,
     ce:/^\d{9}$/,
     telMovil:/^\d{9}$/
+  }
+  const onHandleImg=(evt)=>{
+
+    const allowedExtensions = ['jpeg','jpg','webp', 'bmp','png', 'gif'];
+
+    const file = evt.target.files[0];
+    const fileName = file.name; // "mi_imagen.jpg"
+    const fileNameParts = fileName.split('.'); // ["mi_imagen", "jpg"]
+    const extension = fileNameParts.pop(); // "jpg"F
+
+    if (!file || !allowedExtensions.includes(extension)) {
+      
+      swal({
+        title: `La extensión *${extension.toUpperCase()} es INVALIDA`,
+        text: "Por favor, selecciona una imagen válida",
+        icon: "warning",
+        dangerMode: true,
+      })
+      evt.target.value = ''; // borra el archivo cargado en el elemento
+      setActivaSiguiente(false);
+      return;
+    }   
+  loadIMG(evt);
   }
   const validateMoviltNumber=(type,number)=>{
     if(expresiones.telMovil.test(number)){
@@ -94,6 +118,24 @@ function StepOne() {
 
   },[sexElection])
   
+  useEffect(()=>{
+    if (activaSiguiente){
+      swal({
+        title: "Buen Trabajo!",
+        text: "Completaste todos los campos requeridos. ¡Continúa con el paso 2!",
+        icon: "success",
+        button: {
+          text: "Siguiente Paso!",
+          value: true,
+          visible: true,
+          className: "nextBTN",
+        },
+      }).then(() => {
+        history.push('/paso-2');
+      })
+    }
+
+  },[activaSiguiente])
   return(
     <div className="container align-center min-vh-100">
       <div className="row containeFormPage ">
@@ -110,14 +152,14 @@ function StepOne() {
             <div className="col-sm-3 mx-0 px-1">
               <div className="mb-3">
                 <label for="exampleFormControlInput1" className="form-label text-primary "><span className="text-danger">**</span>Nombres</label>
-                <input type="text" className="form-control" name ="nombres" onChange={setDataForm}  required />
+                <input type="text" className="form-control" pattern="[A-Z]*" title="Por favor, ingrese solo caracteres en mayúsculas" name ="nombres" onChange={setDataForm}  required />
                 
               </div>
             </div>
             <div className="col-sm-3 mx-0 px-1">
               <div className="mb-3">
                 <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Apellidos</label>
-                <input type="text" className="form-control" id="validationDefault05" name ="apellidos"   onChange={setDataForm} required />
+                <input type="text" className="form-control" pattern="[A-Z]*" title="Por favor, ingrese solo caracteres en mayúsculas" id="validationDefault05" name ="apellidos"   onChange={setDataForm} required />
               </div>
             </div>
             <div className="col-sm-2 mx-0 px-1">
@@ -186,13 +228,13 @@ function StepOne() {
             <div className="col-sm-2  mx-0 px-1">
             <div className="mb-3">
                 <label for="exampleFormControlInput1" className="form-label">Pasaporte</label>
-                <input type="ntextumber" className="form-control" name ="pasaporte"   onChange={setDataForm}  />
+                <input type="ntextumber" className="form-control"  name ="pasaporte"   onChange={setDataForm}  />
               </div>
           </div>
             <div className="col-sm-3  mx-0 px-1">
               <div className="mb-3">
                 <label for="exampleFormControlInput1" className="form-label text-primary"><span className="text-danger">**</span>Nacionalidad</label>
-                <input type=" number" className="form-control" name ="nacionalidad"   onChange={setDataForm} required />
+                <input type=" number" className="form-control" pattern="[A-Z]*" title="Por favor, ingrese solo caracteres en mayúsculas"   name ="nacionalidad"   onChange={setDataForm} required />
               </div>
             </div>
           </div>
@@ -265,7 +307,7 @@ function StepOne() {
               <div className="mb-6">
                 <label  className="form-label text-primary"><span className="text-danger">**</span>Agrega tu Firma</label>
                 <div className="adjuntarFirma " >
-                  <input type="file" name = "firmaIMG" onChange={loadIMG} required/>
+                  <input type="file" name = "firmaIMG" onChange={onHandleImg} required/>
                   </div>
               </div>
             </div>
@@ -293,12 +335,7 @@ function StepOne() {
             <div className="next position-absolute top-50 end-0 " >
             {/* <button type="submit" className={!!activaSiguiente?"btn nextBTN disabledbutton":"btn nextBTN "}  >Enviar Datos</button> */}
             <button type="submit" className="btn nextBTN " >Enviar Datos</button>
-            <NavLink to= {"/paso-2"} className={!!activaSiguiente?"btn nextBTN ":"btn nextBTN disabledbutton"} > Siguiente </NavLink>
-
               
-            
-                
-                
             </div>
           </div>
         </footer>  
